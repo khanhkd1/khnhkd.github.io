@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on KhánhKD Blog</title>
+    <link>http://example.org/post/</link>
+    <description>Recent content in Posts on KhánhKD Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 15:01:01 +0700</lastBuildDate><atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog 1: Chuyển từ WordPress sang GitHub</title>
+      <link>http://example.org/post/markdown-basic/</link>
+      <pubDate>Mon, 26 Jul 2021 15:01:01 +0700</pubDate>
+      
+      <guid>http://example.org/post/markdown-basic/</guid>
+      <description>Lý do mình dùng GitHub để viết blog Lý do quan trọng nhất là mình không muốn tốn tiền. Chả là mình đang hăng say viết 1 chiếc blog siêu bé xinh xinh thì đùng, mình không thể gõ LateX trên WordPress (LaTeX là gì?). Sau một hồi mò mẫm thì mình cũng tìm ra được lý do. Đó là mình dùng WordPress free, mà free thì không thể cài plugin hỗ trợ gõ LaTeX.</description>
+    </item>
+    
+  </channel>
+</rss>
