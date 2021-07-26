@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Blog 1: Chuyển từ WordPress sang GitHub" />
+    <meta property="og:title" content="Blog 1: Chuyển từ WordPress sang GitHub" />
+    <meta property="twitter:title" content="Blog 1: Chuyển từ WordPress sang GitHub" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Blog 1: Chuyển từ WordPress sang GitHub-</title>
+
+    <link rel="canonical" href="/post/blog_1/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Blog 1: Chuyển từ WordPress sang GitHub</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Monday, July 26, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lý-do-mình-dùng-github-để-viết-blog">Lý do mình dùng GitHub để viết blog</a></li>
+    <li><a href="#hướng-dẫn-tạo-blog-cá-nhân-sử-dụng-github">Hướng dẫn tạo Blog cá nhân sử dụng GitHub</a>
+      <ul>
+        <li><a href="#nguyên-liệu-cần-có">Nguyên liệu cần có</a></li>
+        <li><a href="#các-bước-thực-hiện">Các bước thực hiện</a></li>
+        <li><a href="#thành-quả">Thành quả</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h1 id="lý-do-mình-dùng-github-để-viết-blog">Lý do mình dùng GitHub để viết blog</h1>
+<p>Lý do quan trọng nhất là mình không muốn tốn tiền. Chả là mình đang hăng say viết 1 chiếc blog siêu bé xinh xinh thì <strong>đùng</strong>, mình không thể gõ LateX trên WordPress (<a href="https://vi.wikipedia.org/wiki/LaTeX">LaTeX là gì?</a>). Sau một hồi mò mẫm thì mình cũng tìm ra được lý do. Đó là mình dùng WordPress <strong>free</strong>, mà <strong>free</strong> thì không thể cài plugin hỗ trợ gõ LaTeX. Muốn cài phải nâng cấp lên loại tài khoản gì gì đó mà tận <strong>300$/1 năm</strong>, một con số không tưởng với một thằng sinh viên đang mốc mồm như mình :(</p>
+<p>Vậy là mình bỏ WordPress từ đây :)))). Rồi mình chuyển sang sử dụng Github. Lý do cũng đơn giản là nó <strong>miễn phí</strong>, ngoài ra mình cũng có thể học thêm cách viết Markdown.</p>
+<h1 id="hướng-dẫn-tạo-blog-cá-nhân-sử-dụng-github">Hướng dẫn tạo Blog cá nhân sử dụng GitHub</h1>
+<p>Sau khi xác định phải viết Blog bằng GitHub thì mình bắt đầu mò mẫm, rồi cuối cùng cũng cho ra được bài đầu tiên - đó là bài này :). Đo thời gian mò mẫm cũng mất khá thời gian nên mình viết bài này với mong muốn tiết kiệm được chút thời gian cho ai đó muốn bắt đầu viết Blog trên GitHub như mình.</p>
+<h2 id="nguyên-liệu-cần-có">Nguyên liệu cần có</h2>
+<ol>
+<li>Tài khoản GitHub</li>
+<li>Một chiếc máy tính</li>
+<li>Một chút thời gian</li>
+</ol>
+<h2 id="các-bước-thực-hiện">Các bước thực hiện</h2>
+<h3 id="tạo-repository">Tạo Repository</h3>
+<p>Sau khi đăng nhập GitHub, hãy tạo một Repository với định dạng: <strong>&ldquo;username&rdquo;.github.io</strong> và để chế độ <strong>Public</strong>. Ví dụ: khnhkdblog.github.io
+
+  <img src="/img/blog_1/create_repo.png" alt="">
+
+</p>
+<h3 id="cài-đặt-hugo">Cài đặt Hugo</h3>
+<p>Hiểu đơn giản Hugo là công cụ giúp ta convert các file định dạng markdown sang các file <strong>html, css, js</strong>.</p>
+<p><a href="https://gohugo.io/getting-started/installing/">Hướng dẫn cài đặt Hugo từ trang chủ</a></p>
+<p>Sau khi cài đặt, bật Terminal nhập lệnh: <strong>hugo version</strong>. Nếu màn hình trả về kết quả như dưới là đã cài đặt thành công.
+
+  <img src="/img/blog_1/intall_hugo_done.png" alt="">
+
+</p>
+<h3 id="tạo-nơi-chứa-blog-ở-máy-local">Tạo nơi chứa Blog ở máy local</h3>
+<p>Mở Terminal và cd đến nơi mà ta muốn chứa Blog và nhập lệnh: <strong>hugo new site &lt;site_name&gt;</strong>
+
+  <img src="/img/blog_1/create_new_site.png" alt="">
+
+</p>
+<h3 id="chọn-giao-diện-có-sẵn">Chọn giao diện có sẵn</h3>
+<p>Sau khi tạo site, ta tiến hành chọn các giao diện mà Hugo hỗ trợ sẵn. <a href="https://themes.gohugo.io/">Link</a></p>
+<p>Ví dụ ở đây mình chọn <a href="https://themes.gohugo.io/themes/hugo-theme-cleanwhite/">Clean White</a></p>
+<p>
+  <img src="/img/blog_1/client_white.png" alt="">
+
+</p>
+<p>Nhấn Download sẽ hiện ra source code và hướng dẫn, ta đọc hướng dẫn rồi tiến hành clone về mục <strong>themes</strong> trong <strong>site</strong> vừa tạo ở bước trước.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="/img/blog_1/theme_clone.png" alt="">
+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Đoạn người ta hướng dẫn clone về máy</em></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Chú ý: trước khi clone theme về máy thì hãy chạy lệnh: <strong>git init</strong> để khởi tạo git.
+
+  <img src="/img/blog_1/git_init_and_clone.png" alt="">
+
+</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="/img/blog_1/after_clone.png" alt="">
+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Cấu trúc site sau khi clone theme về máy</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cấu-hình-file-configtoml">Cấu hình file config.toml</h3>
+<p>Ta mở tiến hành copy nội dung của file <strong>&lt;site_name&gt;/themes/&lt;theme_name&gt;/exampleSite/config.toml</strong> vào file <strong>&lt;site_name&gt;/config.toml</strong>.</p>
+<h3 id="chạy-server-lần-đầu">Chạy server lần đầu</h3>
+<p>Sau khi đã có file config.toml, ta tiến hành chạy server lần đầu xem thành công hay thất bại nhé. Trong terminal, ta chạy lệnh: <strong>hugo server -D</strong></p>
+<p>
+  <img src="/img/blog_1/run_server.png" alt="">
+
+</p>
+<p>Sau khi chạy server, ta vào link <strong>http://localhost:1313/</strong> để kiểm tra, nếu màn hình hiện như hình dưới là đã chạy thành công.</p>
+<p>
+  <img src="/img/blog_1/run_done.png" alt="">
+
+</p>
+<h3 id="chỉnh-sửa-file-configtoml">Chỉnh sửa file config.toml</h3>
+<p>Tại vì file config.toml ta copy từ theme tải về sẵn, nên nó có khá đầy đủ các thành phần. Tuy nhiên nhu cầu sử dụng của chúng ta lại không cần thiết có nhiều thành phần như vậy. Vậy nên ta cần loại bỏ một số thành phần không cần thiết.</p>
+<p>Ở bước này mình khuyên bạn là hãy tự chỉnh sửa file config.toml theo nhu cầu cá nhân. Ban đầu đọc file config.toml thì mình không hiểu, nhưng mình cứ chạy server, thử xoá một vài dòng trong file config.toml rồi lưu lại, xem sự thay đổi trên giao diện web để xác định đó là thành phần nào là hiểu ngay.</p>
+<p>Bước này cũng khá tốn thời gian để hiểu rõ thành phần và loại bỏ thành phần dư thừa.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="/img/blog_1/config.png" alt="">
+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Kết quả sau khi dọn dẹp file config.toml</em></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="/img/blog_1/web_after_clean.png" alt="">
+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Và đây là thành phẩm</em></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Chú ý: Ta lưu ảnh ở folder <strong>&lt;site_name&gt;/static/img</strong></p>
+</blockquote>
+<h3 id="tạo-bài-viết-đầu-tiên">Tạo bài viết đầu tiên</h3>
+<p>Quay trở lại terminal, ta gõ lệnh: <strong>hugo new post/&lt;blog_name&gt;.md</strong>.
+
+  <img src="/img/blog_1/create_first_blog.png" alt="">
+
+</p>
+<p>File Markdown vừa tạo sẽ được lưu trữ tại: <strong>&lt;site_name&gt;/content/post/&lt;blog_name&gt;.md</strong>
+
+  <img src="/img/blog_1/blog_location.png" alt="">
+
+</p>
+<p>Viết gì đó vào file <strong>&lt;blog_name&gt;.md</strong> và lưu lại
+
+  <img src="/img/blog_1/write_into_file.png" alt="">
+
+</p>
+<p>Chạy lại server: <strong>hugo server -D</strong> và đây là kết quả:
+
+  <img src="/img/blog_1/after_run_edit.png" alt="">
+
+</p>
+<h3 id="đẩy-lên-repository-github">Đẩy lên Repository GitHub</h3>
+<p>Trước tiên, ở thư mục <strong>&lt;site_name&gt;</strong>, ta tạo một thư mục có tên <strong>&ldquo;username&rdquo;.github.io</strong> (chính là tên Repository tạo ở bước đầu tiên)</p>
+<p>Tiếp theo, trong file <strong>&lt;site_name&gt;/config.toml</strong> ta thêm dòng <strong>publishdir = &ldquo;username.github.io&rdquo;</strong>. Đây chính là folder ta dùng để chứa các file <strong>html, css, js</strong> sau khi convert từ file Markdown.
+
+  <img src="/img/blog_1/add_publishdir.png" alt="">
+
+</p>
+<blockquote>
+<p>Chú ý: Nếu trong file viết blog (định dạng md) có chứa dòng <strong>draft: true</strong> thì đổi thành <strong>draft: false</strong> nhé, vì khi tạo bài viết bằng lệnh <strong>hugo new post/&lt;blog_name&gt;.md</strong> thì mặc định là bản <strong>nháp</strong>.</p>
+</blockquote>
+<p>Tiếp theo ta vào thư mục <strong>&ldquo;username&rdquo;.github.io</strong> bằng lệnh <strong>cd</strong>. Khởi tạo git bằng lệnh <strong>git init</strong>, kết nối với Repository GitHub bằng lệnh <strong>git remote add origin <a href="https://github.com/">https://github.com/</a><!-- raw HTML omitted -->/<!-- raw HTML omitted -->.github.io.git</strong></p>
+<p>Tiếp tục ta quay trở lại thư mục <strong>&lt;site_name&gt;</strong> bằng lệnh <strong>cd ..</strong>, chạy lệnh <strong>hugo</strong>. Lệnh này sẽ convert các file định dạng Markdown về <strong>html, css, js</strong> và lưu ở folder <strong>&ldquo;username&rdquo;.github.io</strong>
+
+  <img src="/img/blog_1/after_run_hugo.png" alt="">
+
+</p>
+<p>Cuối cùng vào folder <strong>&ldquo;username&rdquo;.github.io</strong> trong terminal, chạy lệnh <strong>git add .</strong>, tiếp theo <strong>git commit -m &ldquo;message&rdquo;</strong>, cuối cùng <strong>git push &ndash;set-upstream origin master</strong>.</p>
+<blockquote>
+<p>Chú ý ở lần push đầu tiên có thể bạn sẽ được yêu cầu nhập tài khoản và mật khẩu GitHub.</p>
+</blockquote>
+<h2 id="thành-quả">Thành quả</h2>
+<p>Cuối cùng là truy cập: <a href="https://github.com/">https://github.com/</a>&lt;username&gt;/&lt;username&gt;.github.io để tận hưởng thành quả nhé.
+
+  <img src="/img/blog_1/result.png" alt="">
+
+</p>
+<p>Hi vọng Blog này giúp ích với các bạn, chúc các bạn thành công!!!</p>
+<blockquote>
+<p>Chú ý: Trong file <strong>config.toml</strong>, ta sửa <strong>baseurl = &ldquo;https://&lt;username&gt;.github.io&rdquo;</strong></p>
+</blockquote>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
