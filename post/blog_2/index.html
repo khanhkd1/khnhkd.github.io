@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)" />
+    <meta property="og:title" content="Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)" />
+    <meta property="twitter:title" content="Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)-</title>
+
+    <link rel="canonical" href="/post/blog_2/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Friday, July 30, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#các-bước-thực-hiện">Các bước thực hiện</a>
+      <ul>
+        <li><a href="#1-tạo-ứng-dụng">1. Tạo ứng dụng</a></li>
+        <li><a href="#2-tạo-chat-bot">2. Tạo chat bot</a></li>
+        <li><a href="#3-thiết-lập-cho-chat-bot-biết-nhắn-tin-cho-người-dùng">3. Thiết lập cho chat bot biết nhắn tin cho người dùng</a></li>
+        <li><a href="#4-tìm-api-covid-19-và-nhúng-vào-bot">4. Tìm API COVID-19 và nhúng vào bot</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <p>Ở bài viết này, mình sẽ hướng dẫn các bạn tạo một con chat bot Messenger. Khi ta nhắn bất kì tin nhắn gì hoặc gửi icon thì nó đều trả về dữ liệu COVID-19 ở Việt Nam.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="/img/blog_2/0_result.png" alt="">
+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Đây là hình ảnh demo chat bot Messenger</em></td>
+</tr>
+</tbody>
+</table>
+<h1 id="các-bước-thực-hiện">Các bước thực hiện</h1>
+<h2 id="1-tạo-ứng-dụng">1. Tạo ứng dụng</h2>
+<ol>
+<li>Truy cập vào <a href="https://developers.facebook.com/"></a>, đăng nhập và tạo một ứng dụng mới.
+
+  <img src="/img/blog_2/1_create_app.png" alt="">
+
+</li>
+<li>Thiết lập Messenger: Nhấn <strong>Thiết lập</strong> dưới icon Messenger
+
+  <img src="/img/blog_2/2_config_mess.png" alt="">
+
+</li>
+<li>Kết nối với FaceBook Page, nếu chưa có thì hãy tạo một Page mới nhé
+
+  <img src="/img/blog_2/3_link_with_page.png" alt="">
+
+</li>
+<li>Chọn <strong>tạo mã</strong> và nhớ lưu lại mã này nhé. Nó có tác dụng kết nối chat bot bạn tạo với Messenger
+
+  <img src="/img/blog_2/4_create_code.png" alt="">
+
+</li>
+</ol>
+<h2 id="2-tạo-chat-bot">2. Tạo chat bot</h2>
+<ol>
+<li>Tạo Project và cài đặt thư viện hỗ trợ: flask và pymessenger4: pip install Flask, pymessenger4</li>
+</ol>
+<blockquote>
+<p>Khuyên bạn nên dùng Anaconda để tạo môi trường ảo. Mỗi Project bạn tạo một môi trường ảo riêng thì sẽ clean hơn là nhiều Project dùng chung một môi trường, IDE trong bài này mình dùng Pycharm.
+
+  <img src="/img/blog_2/5_create_project.png" alt="">
+
+</p>
+</blockquote>
+<ol start="2">
+<li>Ta tiến hành tạo 3 file: <strong>config.py</strong> để lưu các thông tin cấu hình như <strong>ACCESS_TOKEN, VERIFY_TOKEN</strong>; <strong>libraries.py</strong> để lưu các hàm xử lý; <strong>resource.py</strong> để chạy Project.</li>
+</ol>
+<p><em>config.py</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ACCESS_TOKEN <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Mã bạn lưu ở bước trước&#39;</span>
+
+VERIFY_TOKEN <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Mã này do bạn tự define&#39;</span>
+</code></pre></div><p><em>libraries.py</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">from</span> flask <span style="color:#ff79c6">import</span> request
+<span style="color:#ff79c6">from</span> config <span style="color:#ff79c6">import</span> VERIFY_TOKEN
+
+
+<span style="color:#6272a4"># Hàm xác thực token</span>
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">verify_fb_token</span>(token_sent):
+    <span style="color:#ff79c6">if</span> token_sent <span style="color:#ff79c6">==</span> VERIFY_TOKEN:
+        <span style="color:#ff79c6">return</span> request<span style="color:#ff79c6">.</span>args<span style="color:#ff79c6">.</span>get(<span style="color:#f1fa8c">&#34;hub.challenge&#34;</span>)
+    <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#39;Invalid verification token&#39;</span>
+</code></pre></div><p><em>libraries.py</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">from</span> flask <span style="color:#ff79c6">import</span> Flask, request
+<span style="color:#ff79c6">from</span> config <span style="color:#ff79c6">import</span> ACCESS_TOKEN
+<span style="color:#ff79c6">from</span> libraries <span style="color:#ff79c6">import</span> verify_fb_token
+<span style="color:#ff79c6">from</span> pymessenger4 <span style="color:#ff79c6">import</span> Bot
+
+app <span style="color:#ff79c6">=</span> Flask(__name__)
+bot <span style="color:#ff79c6">=</span> Bot(ACCESS_TOKEN)
+
+
+@app<span style="color:#ff79c6">.</span>route(<span style="color:#f1fa8c">&#34;/&#34;</span>, methods<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;GET&#39;</span>, <span style="color:#f1fa8c">&#39;POST&#39;</span>])
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">receive_message</span>():
+    <span style="color:#ff79c6">if</span> request<span style="color:#ff79c6">.</span>method <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;GET&#39;</span>:
+        token_sent <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span>args<span style="color:#ff79c6">.</span>get(<span style="color:#f1fa8c">&#34;hub.verify_token&#34;</span>)
+        <span style="color:#ff79c6">return</span> verify_fb_token(token_sent)
+    <span style="color:#ff79c6">else</span>:
+    	<span style="color:#6272a4"># method = post: chưa xử lý</span>
+        <span style="color:#ff79c6">pass</span>
+
+
+<span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;__main__&#34;</span>:
+    app<span style="color:#ff79c6">.</span>run(debug<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</code></pre></div><ol start="3">
+<li>Chạy server
+Sau khi có được 3 file cơ bản thì ta vào terminal của Pycharm và chạy lệnh: <strong>python resource.py</strong></li>
+</ol>
+<p>Chạy thành công và truy cập địa chỉ: http://127.0.0.1:5000/ mà ra như ảnh sau là ok nhé
+
+  <img src="/img/blog_2/6_first_run.png" alt="">
+
+</p>
+<ol start="4">
+<li>Kết nối với Ứng dụng
+Vì Project của ta mới chỉ chạy trên local, nên ta cần sử dụng <a href="https://ngrok.com/"><strong>ngrok</strong></a>. Hiểu nôm na <strong>ngrok</strong> có thể đưa Project ta vừa tạo lên internet để bất cứ ai cũng có thể truy cập.</li>
+</ol>
+<p>Sau khi cài được Ngrok và có được link https, ta thực hiện <strong>Thêm URL gọi lại</strong>
+
+  <img src="/img/blog_2/7_add_url_recall.png" alt="">
+
+
+
+  <img src="/img/blog_2/8_connect_webhooks.png" alt="">
+
+
+
+  <img src="/img/blog_2/9_connect_done.png" alt="">
+
+
+<strong>Thêm đăng ký</strong> và chọn các quyền phù hợp
+
+  <img src="/img/blog_2/10_them_dang_ky.png" alt="">
+
+</p>
+<h2 id="3-thiết-lập-cho-chat-bot-biết-nhắn-tin-cho-người-dùng">3. Thiết lập cho chat bot biết nhắn tin cho người dùng</h2>
+<ol>
+<li>Đầu tiên ta phải lấy được id của người nhắn. Dưới đây là đoạn respones mẫu khi người dùng nhắn &lsquo;a&rsquo; vào page.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#ff79c6">&#34;object&#34;</span>: <span style="color:#f1fa8c">&#34;page&#34;</span>, <span style="color:#ff79c6">&#34;entry&#34;</span>: [{<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;100406812194351&#34;</span>, <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#bd93f9">1627496007527</span>, <span style="color:#ff79c6">&#34;messaging&#34;</span>: [{<span style="color:#ff79c6">&#34;sender&#34;</span>: {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5550245908383625&#34;</span>}, <span style="color:#ff79c6">&#34;recipient&#34;</span>: {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;100406812194351&#34;</span>}, <span style="color:#ff79c6">&#34;timestamp&#34;</span>: <span style="color:#bd93f9">1627495754932</span>, <span style="color:#ff79c6">&#34;message&#34;</span>: {<span style="color:#ff79c6">&#34;mid&#34;</span>: <span style="color:#f1fa8c">&#34;m_2fbjyoJgYr4seTLZqr3nUavxji0xg9_SxgrHuvtK-QNxhq-BVf1Z8mXf-8tHZNZNjwPb6RJjZsUJpFB5-GIFwQ&#34;</span>, <span style="color:#ff79c6">&#34;text&#34;</span>: <span style="color:#f1fa8c">&#34;a&#34;</span>}}]}]}
+</code></pre></div><p>Từ respones này ta có thể trích xuất được id của người nhắn bằng hàm <strong>get_user_id</strong> được define trong <strong>libraries.py</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">get_user_id</span>(data):
+    <span style="color:#ff79c6">return</span> data[<span style="color:#f1fa8c">&#39;entry&#39;</span>][<span style="color:#bd93f9">0</span>][<span style="color:#f1fa8c">&#39;messaging&#39;</span>][<span style="color:#bd93f9">0</span>][<span style="color:#f1fa8c">&#39;sender&#39;</span>][<span style="color:#f1fa8c">&#39;id&#39;</span>]
+</code></pre></div><ol start="2">
+<li>Sau khi có id của người nhắn, ta thử cài đặt bot có chức năng tự động trả lời khi có tin nhắn bằng đoạn code sau trong <strong>resource.py</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@app<span style="color:#ff79c6">.</span>route(<span style="color:#f1fa8c">&#34;/&#34;</span>, methods<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;GET&#39;</span>, <span style="color:#f1fa8c">&#39;POST&#39;</span>])
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">receive_message</span>():
+    <span style="color:#ff79c6">if</span> request<span style="color:#ff79c6">.</span>method <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;GET&#39;</span>:
+        token_sent <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span>args<span style="color:#ff79c6">.</span>get(<span style="color:#f1fa8c">&#34;hub.verify_token&#34;</span>)
+        <span style="color:#ff79c6">return</span> verify_fb_token(token_sent)
+    <span style="color:#ff79c6">else</span>:
+    	<span style="color:#6272a4"># lấy response sau khi người dùng nhắn tin dưới dạng json</span>
+        response <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span>get_json()
+        <span style="color:#6272a4"># bot gửi lại tin nhắn &#39;text&#39; cho người dùng</span>
+        bot<span style="color:#ff79c6">.</span>send_text_message(get_user_id(response), <span style="color:#f1fa8c">&#39;text&#39;</span>)
+    <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Message Processed&#34;</span>
+</code></pre></div><p>Kết quả như ảnh sau
+
+  <img src="/img/blog_2/11_bot_send.png" alt="">
+
+</p>
+<h2 id="4-tìm-api-covid-19-và-nhúng-vào-bot">4. Tìm API COVID-19 và nhúng vào bot</h2>
+<p>Sau một hồi tìm kiếm thì mình cũng tìm được 1 API miễn phí cung cấp dữ liệu COVID 19 trên toàn thế giới. Nhưng có vẻ dữ liệu của Việt Nam được cập nhật chậm hơn.</p>
+<p>Link API: <a href="https://coronavirus-tracker-api.herokuapp.com/v2/locations">https://coronavirus-tracker-api.herokuapp.com/v2/locations</a></p>
+<h3 id="có-api-rồi-thì-bây-giờ-ta-dùng-code-để-lấy-dữ-liệu-từ-api-và-gửi-cho-người-dùng-nhắn-tin-đến-bot">Có API rồi thì bây giờ ta dùng code để lấy dữ liệu từ API và gửi cho người dùng nhắn tin đến bot.</h3>
+<ol>
+<li>Tạo hàm lấy dữ liệu từ API dưới dạng Json</li>
+</ol>
+<p>Ta define hàm <strong>get_api_data</strong> trong <strong>libraries.py</strong>. Nhưng API này chứa rất nhiều thông tin của các nước trên thế giới, mà mình chỉ quan tâm Việt Nam thôi. Vậy nên mình sẽ chỉ lọc lấy thông tin của Việt Nam</p>
+<p><em>libraries.py</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">get_api_data</span>(url):
+    r <span style="color:#ff79c6">=</span> requests<span style="color:#ff79c6">.</span>get(url)
+    <span style="color:#ff79c6">return</span> r<span style="color:#ff79c6">.</span>json()[<span style="color:#f1fa8c">&#39;locations&#39;</span>][<span style="color:#bd93f9">274</span>]
+</code></pre></div><ol start="2">
+<li>Có được thông tin rồi, bây giờ sẽ nhắn lại cho người dùng
+Đoạn văn bản sẽ gửi cho người dùng</li>
+</ol>
+<p><em>libraries.py</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">text_for_user</span>(data):
+    <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;Thông tin COVID ở Việt Nam:</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span> \
+           <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;Số ca nhiễm: </span><span style="color:#f1fa8c">{</span>data[<span style="color:#f1fa8c">&#34;latest&#34;</span>][<span style="color:#f1fa8c">&#34;confirmed&#34;</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span> \
+           <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;Số ca tử vong: </span><span style="color:#f1fa8c">{</span>data[<span style="color:#f1fa8c">&#34;latest&#34;</span>][<span style="color:#f1fa8c">&#34;deaths&#34;</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>
+</code></pre></div><p><em>resource.py</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@app<span style="color:#ff79c6">.</span>route(<span style="color:#f1fa8c">&#34;/&#34;</span>, methods<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;GET&#39;</span>, <span style="color:#f1fa8c">&#39;POST&#39;</span>])
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">receive_message</span>():
+    <span style="color:#ff79c6">if</span> request<span style="color:#ff79c6">.</span>method <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;GET&#39;</span>:
+        token_sent <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span>args<span style="color:#ff79c6">.</span>get(<span style="color:#f1fa8c">&#34;hub.verify_token&#34;</span>)
+        <span style="color:#ff79c6">return</span> verify_fb_token(token_sent)
+    <span style="color:#ff79c6">else</span>:
+        response <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span>get_json()
+        <span style="color:#6272a4"># kiểm tra xem có tin nhắn đến bot thì gửi lại thông tin dịch bệnh</span>
+        <span style="color:#ff79c6">if</span> <span style="color:#f1fa8c">&#39;message&#39;</span> <span style="color:#ff79c6">in</span> response[<span style="color:#f1fa8c">&#39;entry&#39;</span>][<span style="color:#bd93f9">0</span>][<span style="color:#f1fa8c">&#39;messaging&#39;</span>][<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>keys():
+            bot<span style="color:#ff79c6">.</span>send_text_message(get_user_id(response), text_for_user(get_api_data(URL_COVID_DATA)))
+    <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Message Processed&#34;</span>
+</code></pre></div><p>Kết quả
+
+  <img src="/img/blog_2/12_90_done.png" alt="">
+
+</p>
+<p>Qua bài này mình đã hướng dẫn các bạn tạo chat bot Messenger đơn giản. Các bạn có thể tuỳ chỉnh con bot của mình nhờ <a href="https://developers.facebook.com/docs/messenger-platform/introduction">Tài liệu hướng dẫn của FaceBook</a>. Cảm ơn các bạn đã đọc đến đây ^^, nếu có vướng mắc chỗ nào thì có thể tham khảo <a href="https://github.com/khnhkd/khanhkd_bot">Repository GitHub của mình</a> hoặc có thể inbox hỏi trực tiếp ạ.</p>
+<p>Ở phần 2 thì mình sẽ hướng dẫn các bạn deploy chat bot lên Heroku để nó có thể chạy 24/7, đồng thời hướng dẫn Submit con bot này để ai cũng có thể dùng (bởi khi tạo ra thì nó mặc định ở chế độ đang phát triển, chỉ có người tạo mới có thể sử dụng).</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/blog_1/" data-toggle="tooltip" data-placement="top" title="Blog 1: Chuyển từ WordPress sang GitHub">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

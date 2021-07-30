@@ -6,7 +6,17 @@
     <description>Recent content in Posts on KhánhKD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jul 2021 15:01:01 +0700</lastBuildDate><atom:link href="https://khnhkd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)</title>
+      <link>https://khnhkd.github.io/post/blog_2/</link>
+      <pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/blog_2/</guid>
+      <description>Ở bài viết này, mình sẽ hướng dẫn các bạn tạo một con chat bot Messenger. Khi ta nhắn bất kì tin nhắn gì hoặc gửi icon thì nó đều trả về dữ liệu COVID-19 ở Việt Nam.
+        Đây là hình ảnh demo chat bot Messenger    Các bước thực hiện 1. Tạo ứng dụng  Truy cập vào , đăng nhập và tạo một ứng dụng mới.</description>
+    </item>
+    
     <item>
       <title>Blog 1: Chuyển từ WordPress sang GitHub</title>
       <link>https://khnhkd.github.io/post/blog_1/</link>
