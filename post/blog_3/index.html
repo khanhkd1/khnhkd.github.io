@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Blog 3: Bài toán n! - Ứng dụng công thức Toán trong Lập trình" />
+    <meta property="og:title" content="Blog 3: Bài toán n! - Ứng dụng công thức Toán trong Lập trình" />
+    <meta property="twitter:title" content="Blog 3: Bài toán n! - Ứng dụng công thức Toán trong Lập trình" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Blog 3: Bài toán n! - Ứng dụng công thức Toán trong Lập trình-</title>
+
+    <link rel="canonical" href="/post/blog_3/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Blog 3: Bài toán n! - Ứng dụng công thức Toán trong Lập trình</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Thursday, August 5, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#định-nghĩa-giai-thừa">Định nghĩa giai thừa</a></li>
+    <li><a href="#2-cách-giải-cổ-điển-nhất">2 cách giải cổ điển nhất</a>
+      <ul>
+        <li><a href="#vòng-lặp">Vòng lặp</a></li>
+        <li><a href="#đệ-qui">Đệ qui</a></li>
+        <li><a href="#vấn-đề">Vấn đề</a></li>
+      </ul>
+    </li>
+    <li><a href="#áp-dụng-công-thức-toán">Áp dụng công thức Toán</a>
+      <ul>
+        <li><a href="#phương-pháp-phân-tích-thừa-số-nguyên-tố">Phương pháp phân tích thừa số nguyên tố.</a></li>
+        <li><a href="#các-bước-xử-lý">Các bước xử lý</a></li>
+      </ul>
+    </li>
+    <li><a href="#lập-trình-thuật-toán">Lập trình thuật toán</a>
+      <ul>
+        <li><a href="#tìm-tập-hợp-k-số-nguyên-tố-nhỏ-hơn-n">Tìm tập hợp k số nguyên tố nhỏ hơn n</a></li>
+        <li><a href="#tìm-số-mũ-tương-ứng-với-từng-số-nguyên-tố">Tìm số mũ tương ứng với từng số nguyên tố</a></li>
+        <li><a href="#tính-tích">Tính tích</a></li>
+      </ul>
+    </li>
+    <li><a href="#kết-quả">Kết quả</a></li>
+  </ul>
+</nav>
+                
+                <p>Khi học lập trình, chắc hẳn bạn đã từng thắc mắc là <strong>Lập trình thì có cần giỏi toán không?</strong> đúng không ạ. Mình không có đáp án chính xác cho câu hỏi này nhưng hi vọng thông qua bài viết này thì bạn sẽ có câu trả lời cho riêng bản thân mình.</p>
+<h1 id="định-nghĩa-giai-thừa">Định nghĩa giai thừa</h1>
+<p>Giai thừa là tích \(n\) số tự nhiên <strong>dương</strong> đầu tiên</p>
+<p>Công thức:
+$$ n! = 1\cdot2\cdot3\cdot4\cdot&hellip;\cdot(n-1)\cdot n $$</p>
+<h1 id="2-cách-giải-cổ-điển-nhất">2 cách giải cổ điển nhất</h1>
+<p>Vì 2 cách sau đây khá là cổ điển mà ai cũng đã từng làm nên mình xin phép không giải thích phần này ạ</p>
+<h2 id="vòng-lặp">Vòng lặp</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">giai_thua</span>(n: <span style="color:#8be9fd;font-style:italic">int</span>):
+    n_giai_thua <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">1</span>, n<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>):
+        n_giai_thua <span style="color:#ff79c6">*=</span> i
+    <span style="color:#ff79c6">return</span> n_giai_thua
+</code></pre></div><h2 id="đệ-qui">Đệ qui</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">giai_thua</span>(n: <span style="color:#8be9fd;font-style:italic">int</span>):
+    <span style="color:#ff79c6">if</span> n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>:
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">return</span> n <span style="color:#ff79c6">*</span> giai_thua(n <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>)
+</code></pre></div><h2 id="vấn-đề">Vấn đề</h2>
+<p>Có 2 vấn đề chính là chúng ta cần lưu ý:</p>
+<ol>
+<li>Thời gian xử lý rất lâu, thấy rất rõ ở những giai thừa lớn như: \(10000, 100000, 1000000, &hellip;\)</li>
+</ol>
+<p>Dưới đây là bảng thời gian xử lý</p>
+<table>
+<thead>
+<tr>
+<th>\(n!\)</th>
+<th style="text-align:center">Thời gian vòng for xử lý</th>
+<th style="text-align:center">Thời gian đệ qui xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td style="text-align:center">\(2.86102294921875e-06\)</td>
+<td style="text-align:center">2.1457672119140625e-06</td>
+</tr>
+<tr>
+<td>100</td>
+<td style="text-align:center">\(7.152557373046875e-06\)</td>
+<td style="text-align:center">3.504753112792969e-05</td>
+</tr>
+<tr>
+<td>500</td>
+<td style="text-align:center">\(6.699562072753906e-05\)</td>
+<td style="text-align:center">0.0003032684326171875</td>
+</tr>
+<tr>
+<td>1000</td>
+<td style="text-align:center">\(0.0002930164337158203\)</td>
+<td style="text-align:center">Không tính được</td>
+</tr>
+<tr>
+<td>10000</td>
+<td style="text-align:center">\(0.018440961837768555\)</td>
+<td style="text-align:center">Không tính được</td>
+</tr>
+<tr>
+<td>100000</td>
+<td style="text-align:center">\(2.54584002494812\)</td>
+<td style="text-align:center">Không tính được</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td style="text-align:center">\(329.51545310020447\)</td>
+<td style="text-align:center">Không tính được</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>Với đệ qui, độ sâu tối đa mình có thể lặp đệ qui là 998 (ở máy mình). Vậy là từ \(999!\) trở đi là ta không thể tính bằng phương pháp đệ qui</li>
+</ol>
+<h1 id="áp-dụng-công-thức-toán">Áp dụng công thức Toán</h1>
+<p>Ở phần này mình sẽ trình bày cách tính giai thừa bằng phương pháp phân tích thừa số nguyên tố</p>
+<h2 id="phương-pháp-phân-tích-thừa-số-nguyên-tố">Phương pháp phân tích thừa số nguyên tố.</h2>
+<p>Với mỗi số tự nhiên, ta chuyển hoá số đó thành tích các thừa số nguyên tố</p>
+<table>
+<thead>
+<tr>
+<th>Số tự nhiên</th>
+<th style="text-align:center">Tích các thừa số nguyên tố</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td style="text-align:center">\(2\cdot5\)</td>
+</tr>
+<tr>
+<td>20</td>
+<td style="text-align:center">\(2\cdot2\cdot5={2^2}\cdot5\)</td>
+</tr>
+<tr>
+<td>1850</td>
+<td style="text-align:center">\(2\cdot5\cdot5\cdot37=2\cdot{5^2}\cdot37\)</td>
+</tr>
+</tbody>
+</table>
+<p>Bây giờ ta thử phân tích \(10!\) bằng phương pháp này nhé:
+$$ 10!=1\cdot2\cdot3\cdot4\cdot5\cdot6\cdot7\cdot8\cdot9\cdot10=2\cdot3\cdot(2\cdot2)\cdot5\cdot(2\cdot3)\cdot7\cdot(2\cdot2\cdot2)\cdot(3\cdot3)\cdot(2\cdot5)={2^8}\cdot{3^4}\cdot{5^2}\cdot7 $$</p>
+<h2 id="các-bước-xử-lý">Các bước xử lý</h2>
+<p>Nhìn vào biểu thức trên, ta sẽ định hình cách tính \(10!\) sẽ có 3 bước cơ bản:</p>
+<ol>
+<li>Tìm tập hợp k số nguyên tố (prime_num) nhỏ hơn n</li>
+<li>Tìm số mũ tương ứng (primeIndex) với các số nguyên tố tìm được ở bước 1</li>
+<li>Tính tích: \(\prod_{j=1}^k primeNum_{_j}^{primeIndex_{j}}\)</li>
+</ol>
+<h1 id="lập-trình-thuật-toán">Lập trình thuật toán</h1>
+<h2 id="tìm-tập-hợp-k-số-nguyên-tố-nhỏ-hơn-n">Tìm tập hợp k số nguyên tố nhỏ hơn n</h2>
+<p>Ở bước này mình dùng một thuật toán cổ xưa: sàng nguyên tố <strong>Eratosthenes</strong>, các bước xử lý được trình bày như sau:</p>
+<ol>
+<li>Bước 1: Tạo 1 danh sách các số tự nhiên liên tiếp từ 2 đến n: (2, 3, 4,&hellip;, n).</li>
+<li>Bước 2: Giả sử tất cả các số trong danh sách đều là số nguyên tố. Trong đó, p = 2 là số nguyên tố đầu tiên.</li>
+<li>Bước 3: Tất cả các bội số của p: 2p, 3p, 4p,&hellip; sẽ bị đánh dấu vì không phải là số nguyên tố.</li>
+<li>Tìm các số còn lại trong danh sách mà chưa bị đánh dấu và phải lớn hơn p và nhỏ hơn hoặc bằng căn bậc 2 của n . Nếu không còn số nào, dừng tìm kiếm. Ngược lại, gán cho p giá trị bằng số nguyên tố tiếp theo và quay lại bước 3.</li>
+</ol>
+<p>Khi giải thuật kết thúc, tất các số chưa bị đánh dấu trong danh sách là các số nguyên tố cần tìm.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">eratosthenes_algorithm</span>(n: <span style="color:#8be9fd;font-style:italic">int</span>):
+    primes <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">2</span>]
+    non_primes <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">set</span>()
+    <span style="color:#6272a4"># lặp với giá trị đầu là 3, kết thúc là n, bước nhảy 2</span>
+    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">3</span>, n <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>):
+        <span style="color:#ff79c6">if</span> i <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">in</span> non_primes:
+            <span style="color:#6272a4"># thêm giá trị 2*i vào set not_primes (tập hợp không phải số nguyên tố)</span>
+            non_primes <span style="color:#ff79c6">|=</span> {j <span style="color:#ff79c6">for</span> j <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(i <span style="color:#ff79c6">*</span> i, n <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">*</span> i)}
+            primes<span style="color:#ff79c6">.</span>append(i)
+    <span style="color:#ff79c6">return</span> primes
+</code></pre></div><h2 id="tìm-số-mũ-tương-ứng-với-từng-số-nguyên-tố">Tìm số mũ tương ứng với từng số nguyên tố</h2>
+<p>Sau khi có được các số nguyên tố nhỏ hơn \(n\), ta tiến hành đi tìm các số mũ tương ứng của chúng bằng công thức <strong>Legendre&rsquo;s formula</strong></p>
+<p>Công thức <strong>Legendre&rsquo;s formula</strong>:
+$$ v_{_p}(n!)=\sum_{i=1}^{\infty} \lfloor\frac n{p^i}\rfloor $$
+Trong đó: \(p\) là số nguyên tố cần tìm số mũ tương ứng; \(\lfloor x\rfloor\) là hàm làm tròn xuống. Ví dụ: \(\lfloor 1.01\rfloor=1, \lfloor 1.99\rfloor=1\); Hàm tính tổng sẽ dừng lại khi \(\lfloor\frac n{p^i}\rfloor=0\) hay \({p^i}&gt;n\)</p>
+<p>Ví dụ:</p>
+<ol>
+<li>\(v_{_2}(6!)=\sum_{i=1}^{\infty} \lfloor\frac 6{2^i}\rfloor=\lfloor \frac 6{2^1}\rfloor + \lfloor \frac 6{2^2}\rfloor = 3 + 1 = 4\)</li>
+<li>\(v_{_3}(6!)=\sum_{i=1}^{\infty} \lfloor\frac 6{3^i}\rfloor=\lfloor \frac 6{3^1}\rfloor= 2\)</li>
+<li>\(v_{_5}(6!)=\sum_{i=1}^{\infty} \lfloor\frac 6{5^i}\rfloor=\lfloor \frac 6{5^1}\rfloor= 1\)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">prime_index</span>(n: <span style="color:#8be9fd;font-style:italic">int</span>, p: <span style="color:#8be9fd;font-style:italic">int</span>):
+    index <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+    <span style="color:#6272a4"># ta dùng vòng lặp while với điều kiện n = True (trong python: n=0 -&gt; False, n!=0 -&gt; True)</span>
+    <span style="color:#6272a4"># vòng lặp dừng lại khi n = 0 hay phép chia lấy phần nguyên n //= p trả về 0 &lt;-&gt; p &gt; n</span>
+    <span style="color:#6272a4"># tại vì mỗi lần lặp, ta đều thay đổi giá trị n xuống thành phần nguyên của phép chia n/p.</span>
+    <span style="color:#6272a4"># Vậy nên ta không cần tăng số mũ của p</span>
+    <span style="color:#ff79c6">while</span> n:
+        <span style="color:#6272a4"># n sẽ gán lại bằng phần nguyên của biểu thức n/p</span>
+        n <span style="color:#ff79c6">//=</span> p
+        index <span style="color:#ff79c6">+=</span> n
+    <span style="color:#ff79c6">return</span> index
+</code></pre></div><h2 id="tính-tích">Tính tích</h2>
+<p>Bây giờ sau khi có tập hợp k số nguyên tố nhỏ hơn \(n\) và k số mũ tương ứng, ta chỉ cần nhân chúng lại với nhau.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">factorial</span>(n: <span style="color:#8be9fd;font-style:italic">int</span>):
+    <span style="color:#ff79c6">if</span> n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">or</span> n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>:
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>
+    <span style="color:#6272a4"># fact_pows là mảng chứa (số nguyên tố, số mũ tương ứng)</span>
+    fact_pows <span style="color:#ff79c6">=</span> [(x, prime_index(n, x))
+                 <span style="color:#ff79c6">for</span> x <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">reversed</span>(eratosthenes_algorithm(n<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>))]
+    <span style="color:#6272a4"># kiểm tra nếu độ dài mảng fact_pows là lẻ thì ta thêm phần tử (1, 1) để độ dài mảng là chẵn</span>
+    <span style="color:#6272a4"># việc thêm phần tử (1, 1) không làm ảnh hưởng vì a * (1^1) = a</span>
+    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(fact_pows) <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>:
+        fact_pows<span style="color:#ff79c6">.</span>append((<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>))
+    <span style="color:#6272a4"># các phần tử trong mảng mul được tính như sau:</span>
+    <span style="color:#6272a4"># phần tử thứ nhất = phần tử đầu tiên và cuối cùng của mảng fact_pows nhân với nhau. ** là mũ</span>
+    mul <span style="color:#ff79c6">=</span> [fact_pows[i][<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">**</span> fact_pows[i][<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> fact_pows[<span style="color:#ff79c6">-</span>i<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>][<span style="color:#bd93f9">0</span>]
+           <span style="color:#ff79c6">**</span> fact_pows[<span style="color:#ff79c6">-</span>i<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>][<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(fact_pows)<span style="color:#ff79c6">//</span><span style="color:#bd93f9">2</span>)]
+    <span style="color:#ff79c6">while</span> <span style="color:#8be9fd;font-style:italic">len</span>(mul) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>:
+        <span style="color:#6272a4"># nếu độ dài mảng mul là lẻ, ta tiến hành thêm phần tử 1 để độ dài thành chẵn</span>
+        <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(mul) <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>:
+            mul<span style="color:#ff79c6">.</span>append(<span style="color:#bd93f9">1</span>)
+        <span style="color:#6272a4"># tính tích các phần tử</span>
+        mul <span style="color:#ff79c6">=</span> [mul[i] <span style="color:#ff79c6">*</span> mul[<span style="color:#ff79c6">-</span>i<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(mul)<span style="color:#ff79c6">//</span><span style="color:#bd93f9">2</span>)]
+    <span style="color:#6272a4"># thoát khỏi vòng lặp while thì mul chỉ còn 1 phần tử - chính là giá trị giai thừa cần tìm</span>
+    <span style="color:#ff79c6">return</span> mul[<span style="color:#bd93f9">0</span>]
+</code></pre></div><h1 id="kết-quả">Kết quả</h1>
+<p>Dưới đây là bảng thời gian xử lý</p>
+<table>
+<thead>
+<tr>
+<th>\(n!\)</th>
+<th style="text-align:center">Thời gian vòng for xử lý</th>
+<th style="text-align:center">Thời gian đệ qui xử lý</th>
+<th style="text-align:center">Áp dụng công thức toán</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td style="text-align:center">\(2.86102294921875e-06\)</td>
+<td style="text-align:center">2.1457672119140625e-06</td>
+<td style="text-align:center">3.0994415283203125e-05</td>
+</tr>
+<tr>
+<td>100</td>
+<td style="text-align:center">\(7.152557373046875e-06\)</td>
+<td style="text-align:center">3.504753112792969e-05</td>
+<td style="text-align:center">5.2928924560546875e-05</td>
+</tr>
+<tr>
+<td>500</td>
+<td style="text-align:center">\(6.699562072753906e-05\)</td>
+<td style="text-align:center">0.0003032684326171875</td>
+<td style="text-align:center">0.00020003318786621094</td>
+</tr>
+<tr>
+<td>1000</td>
+<td style="text-align:center">\(0.0002930164337158203\)</td>
+<td style="text-align:center">Không tính được</td>
+<td style="text-align:center">0.0003590583801269531</td>
+</tr>
+<tr>
+<td>10000</td>
+<td style="text-align:center">\(0.018440961837768555\)</td>
+<td style="text-align:center">Không tính được</td>
+<td style="text-align:center">0.0057506561279296875</td>
+</tr>
+<tr>
+<td>100000</td>
+<td style="text-align:center">\(2.54584002494812\)</td>
+<td style="text-align:center">Không tính được</td>
+<td style="text-align:center">0.22980308532714844</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td style="text-align:center">\(329.51545310020447\)</td>
+<td style="text-align:center">Không tính được</td>
+<td style="text-align:center">11.476464033126831</td>
+</tr>
+</tbody>
+</table>
+<p>Nhìn vào kết quả, ta nhận thấy rằng cách làm trên đã giảm thời gian xử lý chỉ còn bằng \(\frac 1{30}\) thời gian xử lý khi dùng vòng for khi tính toán \(1000000!\)</p>
+<p>Qua bài viết này, mình muốn nói rằng toán học thực sự có hữu ích trong việc lập trình. Còn ý kiến của bạn thì sao? Hãy bình luận hoặc nhắn tin với mình để chia sẻ quan điểm nhé. Cuối cùng thì cảm ơn các bạn đã dành chút thời gian đọc bài viết của mình ạ.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/blog_2/" data-toggle="tooltip" data-placement="top" title="Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
