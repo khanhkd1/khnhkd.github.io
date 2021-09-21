@@ -29,17 +29,6 @@ Công thức: $$ n!</description>
     </item>
     
     <item>
-      <title>Blog 4: Hướng dẫn tạo Messenger bot báo tình hình COVID-19 với Python (Phần 2)</title>
-      <link>https://khnhkd.github.io/post/blog_4/</link>
-      <pubDate>Wed, 28 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://khnhkd.github.io/post/blog_4/</guid>
-      <description>5. Deploy lên Heroku Vậy là ta đã hoàn thành chat bot cá nhân. Nhưng nó đang chạy trên máy cá nhân, ta tắt máy thì bot ngủm. Vậy nên ta sẽ deploy nó lên Heroku để nó chạy 24/24.
-Có nhiều cách để deploy một project lên Heroku. Nhưng mình thường dùng cách đẩy project lên Github rồi dùng Heroku connect đến repo GitHub.
-Để dùng deploy được lên Heroku, project của ta cần chứa 2 file: requirements.</description>
-    </item>
-    
-    <item>
       <title>Blog 1: Chuyển từ WordPress sang GitHub</title>
       <link>https://khnhkd.github.io/post/blog_1/</link>
       <pubDate>Mon, 26 Jul 2021 15:01:01 +0700</pubDate>
