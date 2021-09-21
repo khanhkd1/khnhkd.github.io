@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Blog 4: Hướng dẫn tạo Messenger bot báo tình hình COVID-19 với Python (Phần 2)" />
+    <meta property="og:title" content="Blog 4: Hướng dẫn tạo Messenger bot báo tình hình COVID-19 với Python (Phần 2)" />
+    <meta property="twitter:title" content="Blog 4: Hướng dẫn tạo Messenger bot báo tình hình COVID-19 với Python (Phần 2)" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Categories-</title>
+    <title>Blog 4: Hướng dẫn tạo Messenger bot báo tình hình COVID-19 với Python (Phần 2)-</title>
 
-    <link rel="canonical" href="/categories/">
+    <link rel="canonical" href="/post/blog_4/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 
@@ -142,14 +142,33 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/404_img.jpeg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>KhánhKD Blog </h1>
-                    
-		    <span class="subheading">Tập tành viết, chia sẻ thứ mình học được!</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Blog 4: Hướng dẫn tạo Messenger bot báo tình hình COVID-19 với Python (Phần 2)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Wednesday, July 28, 2021
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -162,13 +181,87 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#5-deploy-lên-heroku">5. Deploy lên Heroku</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h2 id="5-deploy-lên-heroku">5. Deploy lên Heroku</h2>
+<p>Vậy là ta đã hoàn thành chat bot cá nhân. Nhưng nó đang chạy trên máy cá nhân, ta tắt máy thì bot ngủm. Vậy nên ta sẽ deploy nó lên Heroku để nó chạy 24/24.</p>
+<p>Có nhiều cách để deploy một project lên Heroku. Nhưng mình thường dùng cách đẩy project lên Github rồi dùng Heroku connect đến repo GitHub.</p>
+<p>Để dùng deploy được lên Heroku, project của ta cần chứa 2 file: <strong>requirements.txt</strong> chứa các thư viện sử dụng trong project (chạy lệnh <strong>pip freeze &gt; requirements.txt</strong>), <strong>Profile</strong>: định nghĩa file sẽ được chạy.</p>
+<p><em>requirements.txt</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">certifi==2021.5.30
+charset-normalizer==2.0.3
+click==8.0.1
+Flask==2.0.1
+gunicorn==20.1.0
+idna==3.2
+importlib-metadata==4.6.1
+itsdangerous==2.0.1
+Jinja2==3.0.1
+MarkupSafe==2.0.1
+pymessenger4==1.0.1
+requests==2.26.0
+requests-toolbelt==0.9.1
+six==1.16.0
+typing-extensions==3.10.0.0
+urllib3==1.26.6
+Werkzeug==2.0.1
+zipp==3.5.0
+</code></pre></div><p><em>Procfile</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">web: gunicorn resource:app
+</code></pre></div><p>Sau khi đẩy project lên GitHub, ta vào Heroku tạo ứng dụng mới, kết nối với GitHub là done
+
+  <img src="/img/blog_2/13_create_heroku_app.png" alt="">
+
+
+
+  <img src="/img/blog_2/14_connect_github.png" alt="">
+
+</p>
+<p>Sau khi deploy thành công, ta sẽ có 1 đường link, gắn đường link này vào URL gọi lại là xong
+
+  <img src="/img/blog_2/15_new_url.png" alt="">
+
+</p>
+<p>Vậy là ta đã hoàn thành xây dựng chat bot rồi. Cảm ơn bạn đã đọc.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/blog_1/" data-toggle="tooltip" data-placement="top" title="Blog 1: Chuyển từ WordPress sang GitHub">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/blog_2/" data-toggle="tooltip" data-placement="top" title="Blog 2: Tạo chat bot Messenger thông báo tình hình COVID-19 với Python (Phần 1)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 
@@ -198,7 +291,7 @@
             </div>
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
