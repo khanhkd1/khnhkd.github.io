@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on KhánhKD Blog</title>
+    <link>https://khnhkd.github.io/categories/python/</link>
+    <description>Recent content in Python on KhánhKD Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello Python</title>
+      <link>https://khnhkd.github.io/post/python/hello-python/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/python/hello-python/</guid>
+      <description>Hello, Python! Series này sẽ đề cập những kiến thức cốt lõi về Python để bạn có thể sử dụng Python cho khoa học dữ liệu. Cụ thể, bài viết này sẽ nói qua về cấu trúc câu lệnh, phép gán giá trị cho biến và các toán tử.
+Python được đặt tên theo Monty Python, một đoàn hài kịch nổi tiếng ở Anh. Chính vì vậy, với ví dụ đầu tiên này, chúng tôi muốn tưởng nhớ đến họ bằng qua ví dụ sau đây, phỏng theo bản kịch họ viết về món Spam.</description>
+    </item>
+    
+  </channel>
+</rss>

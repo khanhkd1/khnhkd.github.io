@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Hello Python" />
+    <meta property="og:title" content="Hello Python" />
+    <meta property="twitter:title" content="Hello Python" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Hello Python-</title>
+
+    <link rel="canonical" href="/post/python/hello-python/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/data-science">data-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/python">python</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Hello Python</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Tuesday, September 21, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hello-python">Hello, Python!</a></li>
+    <li><a href="#số-hạng-và-phép-toán-trong-python">Số hạng và phép toán trong Python</a>
+      <ul>
+        <li><a href="#thứ-tự-phép-toán">Thứ tự phép toán</a></li>
+        <li><a href="#các-hàm-số-học-được-tích-hợp-sẵn">Các hàm số học được tích hợp sẵn</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h1 id="hello-python">Hello, Python!</h1>
+<p>Series này sẽ đề cập những kiến thức cốt lõi về Python để bạn có thể sử dụng Python cho khoa học dữ liệu. Cụ thể, bài viết này sẽ nói qua về cấu trúc câu lệnh, phép gán giá trị cho biến và các toán tử.</p>
+<p>Python được đặt tên theo Monty Python, một đoàn hài kịch nổi tiếng ở Anh. Chính vì vậy, với ví dụ đầu tiên này, chúng tôi muốn tưởng nhớ đến họ bằng qua ví dụ sau đây, phỏng theo bản kịch họ viết về món Spam.</p>
+<p>Các bạn hãy đọc đoạn mã bên dưới và suy nghĩ xem khi chạy thì chương trình này sẽ làm gì. Nếu không biết, thì đừng lo lắng, vì đây là bài đầu tiên mà 😊</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">spam_amount <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(spam_amount)
+
+<span style="color:#6272a4"># Ordering Spam, egg, Spam, Spam, bacon and Spam (4 more servings of Spam)</span>
+spam_amount <span style="color:#ff79c6">=</span> spam_amount <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">4</span>
+
+<span style="color:#ff79c6">if</span> spam_amount <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;But I don&#39;t want ANY spam!&#34;</span>)
+
+viking_song <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Spam &#34;</span> <span style="color:#ff79c6">*</span> spam_amount
+<span style="color:#8be9fd;font-style:italic">print</span>(viking_song)
+</code></pre></div><p>Chúng ta sẽ lần lượt đi từ trên xuống dưới để xem một đoạn mã viết bằng Python sẽ trông như thế nào và phương thức hoạt động của nó ra sao nhé.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">spam_amount <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</code></pre></div><p><strong>Phép gán toán tử:</strong> Trong câu lệnh này, ta đã tạo ra một biến mang tên spam_amount và gán cho nó giá trị bằng 0. Dấu = trong trường hợp này là toán tử gán.</p>
+<p><strong>Bên lề:</strong> Nếu như các bạn từng lập trình bằng một số ngôn ngữ, như Java hay C, các bạn sẽ thấy rằng có một số điểm đáng chú ý sau:</p>
+<ul>
+<li>Chúng ta không cần khai báo biến spam_amount trước khi gán cho nó một giá trị nào đó</li>
+<li>Chúng ta không cần phải chỉ định cụ thể  spam_amount thuộc kiểu dữ liệu nào. Trên thực tế, chúng ta còn có thể gán spam_amount với giá trị mới mà khác kiểu giá trị cũ, như kiểu chuỗi (STRING) hay kiểu dữ liệu BOOLEAN.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(spam_amount)
+</code></pre></div><blockquote>
+<p>0</p>
+</blockquote>
+<p><strong>Phương thức gọi hàm:</strong> print là một hàm của Python, nhằm in giá trị truyền vào ra màn hình console. Chúng ta có thể gọi hàm đó bằng cách đặt cặp dấu ngoặc tròn đằng sau hàm đó, và truyền giá trị đầu vào (hay ta còn gọi là biến) ở bên trong cặp dấu ngoặc tròn đó.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Ordering Spam, egg, Spam, Spam, bacon and Spam (4 more servings of Spam)</span>
+spam_amount <span style="color:#ff79c6">=</span> spam_amount <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">4</span>
+</code></pre></div><p>Dòng đầu tiên là <strong>chú thích</strong>. Ta có thể them chú thích bằng cách đặt dấu thăng # đằng trước dòng đó. Khi ta chạy chương trình thì mọi chú thích sẽ được bỏ qua.</p>
+<p>Dòng tiếp theo thay đổi giá trị biến spam_amount bằng cách gán cho nó một giá trị khác. Ta vẫn sử dụng toán tử gán (=) để thay đổi giá trị của biến.</p>
+<p>Trong trường hợp này, giá trị mà ta gán cho spam_amount được tính bằng biểu thức ở bên tay phải toán tử gán. Cụ thể hơn, biểu thức đằng sau dấu bằng (0 + 4 = 4) sẽ được tính trước, rồi được gán cho biến đằng trước dấu bằng (spam_amount = 4).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">if</span> spam_amount <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;But I don&#39;t want ANY spam!&#34;</span>)
+
+viking_song <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Spam Spam Spam&#34;</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(viking_song)
+</code></pre></div><blockquote>
+<p>But I don&rsquo;t want ANY spam!<br>
+Spam Spam Spam</p>
+</blockquote>
+<p>Chúng ta sẽ nói về câu lệnh điều kiện ở các bài sau, thế nhưng các bạn có thể đoán được câu lệnh này có ý nghĩa gì.</p>
+<p>Các bạn hãy chú ý cách ta phân định phần code nằm bên trong và bên ngoài cấu trúc if – then. Khi spam_amount dương, câu &ldquo;But I don&rsquo;t want ANY spam!&rdquo; sẽ được xuất ra màn hình. Nhưng những đoạn code ở sau (như là <em>print(viking_song)</em>) sẽ luôn được thực hiện. Làm thế nào để ta (và trình thông dịch của Python) biết được điều này?</p>
+<p>Dấu hai chấm (:) ở cuối dòng if chỉ định điểm bắt đầu của khối lệnh mới. Khối lệnh mới chỉ bao gồm những câu lệnh được viết thụt lùi (bằng cách sử dụng 4 ký tự khoảng trắng hoặc 1 tab) so với dòng trên.</p>
+<blockquote>
+<p><strong>Ngoài ra:</strong> một số ngôn ngữ khác có thể sử dụng {dấu ngoặc nhọn} để đánh dấu điểm bắt đầu và kết thúc của khối lệnh. Những lập trình viên sử dụng ngôn ngữ khác có thể bỡ ngỡ trước cách Python sử dụng khoảng trắng, thế nhưng trên thực tế, code có các đoạn thụt lề thường sẽ nhất quán và dễ đọc hơn những ngôn ngữ không bắt buộc lùi dòng như Python.</p>
+</blockquote>
+<p>Các dòng kế tiếp không thuộc khối lệnh của <em>if</em> vì người viết không thụt lùi các câu lệnh đó. Sau này chúng ta sẽ thấy những ví dụ khác cũng sử dụng thụt lề để định nghĩa những hàm mới hoặc thực thi các vòng lặp</p>
+<p>Trong đoạn code ở trên chứa một kiểu dữ liệu mới – kiểu chuỗi (String)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#34;But I don&#39;t want ANY spam!&#34;</span>
+</code></pre></div><p>Các chuỗi được đặt bên trong dấu ngoặc đơn hoặc ngoặc kép, nhưng vì trong chuỗi trên có sử dụng dấu nháy đơn, nên chúng ta bọc câu trên bằng ngoặc kép để Python tránh hiểu lầm. Ngoài ra ta có thể viết <em>&lsquo;But I don't want ANY spam!'</em>, dấu \ để ra dấu hiệu rằng đằng sau nó là một kí tự đặc biệt.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">viking_song <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Spam &#34;</span> <span style="color:#ff79c6">*</span> spam_amount
+<span style="color:#8be9fd;font-style:italic">print</span>(viking_song)
+</code></pre></div><blockquote>
+<p>Spam Spam Spam Spam</p>
+</blockquote>
+<p>Toán tử *, còn gọi là toán tử nhân, được sử dụng để nhân 2 số thực với nhau, nhưng ta cũng có thể tạo ra một chuỗi mới từ việc lặp lại các chuỗi con bằng cách sử dụng toán tử * giữa chuỗi con đó với một số nguyên. Python còn giúp ta tiết kiệm thời gian bằng cách tùy chỉnh ý nghĩa của các toán tử dựa trên các kiểu dữ liệu của các toán hạng (operator overloading – nạp chồng toán hạng)</p>
+<h1 id="số-hạng-và-phép-toán-trong-python">Số hạng và phép toán trong Python</h1>
+<p>Chúng ta đã thấy ví dụ về việc gán một số cho một biến ở trên:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">spam_amount <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+</code></pre></div><p>Nếu như ta muốn biết một biến đang chứa kiểu giá trị gì, ta có thể thực hiện câu lệnh sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">type</span>(spam_amount)
+</code></pre></div><blockquote>
+<p>int</p>
+</blockquote>
+<p>Đầu ra của hàm trên là int – hay integer, tiếng Việt có nghĩa là số nguyên. Ngoài kiểu int, chúng ta còn có thể bắt gặp một kiểu số khác:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">type</span>(<span style="color:#bd93f9">19.95</span>)
+</code></pre></div><blockquote>
+<p>float</p>
+</blockquote>
+<p>Đầu ra của hàm là float – số thực hay số thập phân có dấu phẩy động. Kiểu float rất có ích trong việc thể hiện các tỉ lệ</p>
+<p>Hàm type() là hàm thứ 2 của Python mà ta thấy (sau <em>print()</em>), và cũng là một lệnh rất hữu ích, được sử dụng để trả về kiểu của biến, hay trả lời câu hỏi &ldquo;Đây là cái quái gì?&rdquo;.</p>
+<p>Chúng ta còn có thể thực hiện các phép toán cơ bản với số trên Python. Ngoài phép + và phép *, Python còn cho phép chúng ta thực hiện các phép toán thường nhật khác:</p>
+<table>
+<thead>
+<tr>
+<th>Biểu thức</th>
+<th>Tên toán hạng</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a + b</td>
+<td>Cộng</td>
+<td>Tổng hai số a, b</td>
+</tr>
+<tr>
+<td>a - b</td>
+<td>Trừ</td>
+<td>Hiệu hai số a, b</td>
+</tr>
+<tr>
+<td>a * b</td>
+<td>Nhân</td>
+<td>Tích hai số a, b</td>
+</tr>
+<tr>
+<td>a / b</td>
+<td>Chia</td>
+<td>Thương hai số a, b</td>
+</tr>
+<tr>
+<td>a // b</td>
+<td>Chia làm tròn xuống</td>
+<td>Phép chia lấy phần nguyên của a, b</td>
+</tr>
+<tr>
+<td>a % b</td>
+<td>Chia lấy dư</td>
+<td>Phép chia lấy phần dư của a, b</td>
+</tr>
+<tr>
+<td>a ** b</td>
+<td>Mũ</td>
+<td>Phép luỹ thừa a mũ b</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>Phép đối</td>
+<td>Lấy số đối của a</td>
+</tr>
+</tbody>
+</table>
+<p>Ta có thể thấy rằng Python có 2 phép chia với 2 mục đích khác nhau. Phép chia thông thường cho phép ta tìm thương giữa 2 số, và kết quả ra là một <strong>số thập phân</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#bd93f9">5</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>)
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#bd93f9">6</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>)
+</code></pre></div><blockquote>
+<p>2.5<br>
+3.0</p>
+</blockquote>
+<p>Còn toán tử // cho ta thương là <strong>số nguyên</strong> được làm tròn xuống</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#bd93f9">5</span> <span style="color:#ff79c6">//</span> <span style="color:#bd93f9">2</span>)
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#bd93f9">6</span> <span style="color:#ff79c6">//</span> <span style="color:#bd93f9">2</span>)
+</code></pre></div><blockquote>
+<p>2<br>
+3</p>
+</blockquote>
+<h2 id="thứ-tự-phép-toán">Thứ tự phép toán</h2>
+<p>Thứ tự phép toán chúng ta đã được học từ thời Tiểu học, chính là “Ngoặc đầu tiên, mũ thứ hai, nhân chia trước, cộng trừ sau”. Python và mọi ngôn ngữ lập trình khác cũbg đều tuân thủ theo qui tắc này.</p>
+<p>Nhưng đôi khi, các qui tắc này lại hoạt động không theo mong muốn của chúng ta, như ví dụ sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hat_height_cm <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">25</span>
+my_height_cm <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">190</span>
+<span style="color:#6272a4"># How tall am I, in meters, when wearing my hat?</span>
+total_height_meters <span style="color:#ff79c6">=</span> hat_height_cm <span style="color:#ff79c6">+</span> my_height_cm <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">100</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Height in meters =&#34;</span>, total_height_meters, <span style="color:#f1fa8c">&#34;?&#34;</span>)
+</code></pre></div><blockquote>
+<p>Height in meters = 26.9 ?</p>
+</blockquote>
+<p>Trong những trường hợp này, ta dùng dấu ngoặc đơn để ưu tiên phép toán cộng trước</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">total_height_meters <span style="color:#ff79c6">=</span> (hat_height_cm <span style="color:#ff79c6">+</span> my_height_cm) <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">100</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Height in meters =&#34;</span>, total_height_meters)
+</code></pre></div><blockquote>
+<p>Height in meters = 2.15</p>
+</blockquote>
+<h2 id="các-hàm-số-học-được-tích-hợp-sẵn">Các hàm số học được tích hợp sẵn</h2>
+<p>Hàm min() và max() trả về giá trị nhỏ nhất và lớn nhất trong một dãy số. Ví dụ</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">max</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>))
+</code></pre></div><blockquote>
+<p>1<br>
+3</p>
+</blockquote>
+<p>Hàm abs() trả về giá trị tuyệt đối của một số</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">abs</span>(<span style="color:#bd93f9">32</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">abs</span>(<span style="color:#ff79c6">-</span><span style="color:#bd93f9">32</span>))
+</code></pre></div><blockquote>
+<p>32<br>
+32</p>
+</blockquote>
+<p>Ngoài ra, ta có thể ép kiểu (hay còn gọi là chuyển đổi) từ số nguyên sang số thực và ngược lại bằng cách gọi hàm tương ứng:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">float</span>(<span style="color:#bd93f9">10</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">int</span>(<span style="color:#bd93f9">3.33</span>))
+<span style="color:#6272a4"># They can even be called on strings!</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">int</span>(<span style="color:#f1fa8c">&#39;807&#39;</span>) <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>)
+</code></pre></div><blockquote>
+<p>10.0<br>
+3<br>
+808</p>
+</blockquote>
+<p>Vậy là qua bài này, chúng ta đã có cái nhìn cơ bản về ngôn ngữ lập trình Python. Bài tiếp theo mình sẽ đề cập đến Function, hay còn họi là hàm.</p>
+<p>Series này mình dịch từ Kaggle, cá nhân mình thấy lộ trình của Kaggle khá bài bản. Nếu bạn nào muốn học trực tiếp bằng tiếng anh thì có thể truy cập <a href="https://www.kaggle.com/learn/python">Khoá học Python - Kaggle</a> nhé.</p>
+<p>Cuối cùng là lời cảm ơn sâu sắc tới <a href="https://www.facebook.com/spun.sugar.on.a.stick">Trương Quốc Quân</a> - người đồng hành cùng mình trong series bài viết này.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/blog_3/" data-toggle="tooltip" data-placement="top" title="Blog 3: Bài toán n! - Ứng dụng công thức Toán trong Lập trình">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
