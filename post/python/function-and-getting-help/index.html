@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Function and Getting Help" />
+    <meta property="og:title" content="Function and Getting Help" />
+    <meta property="twitter:title" content="Function and Getting Help" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Function and Getting Help-</title>
+
+    <link rel="canonical" href="/post/python/function-and-getting-help/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/data-science">data-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/python">python</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Function and Getting Help</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Sunday, September 26, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#getting-help">Getting Help</a></li>
+    <li><a href="#defining-functions-khai-báo-hàm">Defining functions (Khai báo hàm)</a>
+      <ul>
+        <li><a href="#docstring">Docstring</a></li>
+        <li><a href="#functions-that-dont-return-hàm-không-trả-về">Functions that don&rsquo;t return (Hàm không trả về)</a></li>
+        <li><a href="#default-arguments-tham-số-mặc-định">Default arguments (Tham số mặc định)</a></li>
+        <li><a href="#functions-applied-to-functions-hàm-nhận-đối-số-là-hàm">Functions Applied to Functions (Hàm nhận đối số là hàm)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <p>Ở bài trước, chúng ta đã được làm quen với các hàm như <em>print()</em> và <em>abs()</em>. Nhưng ngoài 2 hàm trên, Python còn có hàng trăm các hàm khác, và một trong những kỹ năng thiết yếu trong lập trình Python là việc chúng ta có thể tự tạo ra các hàm mới, với đầu vào và đầu ra theo tùy ý của chúng ta.</p>
+<p>Trong bài này, chúng ta sẽ học thêm về cách gọi và định nghĩa hàm.</p>
+<h1 id="getting-help">Getting Help</h1>
+<p>Ở bài trước bạn đã sử dụng hàm <em>abs()</em>, thế nhưng nếu bạn quên mất tác dụng của hàm đó thì giờ phải làm gì?</p>
+<p>Hàm <em>help()</em> có lẽ là một trong những hàm hữu ích nhất trong quá trình bạn học ngôn ngữ Python này. Nếu bạn biết sử dụng <em>help()</em>, bạn sẽ có khả năng hiểu được gần như mọi hàm khác.</p>
+<p>Ta sẽ thấy được điều này qua ví dụ sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(<span style="color:#8be9fd;font-style:italic">round</span>)
+</code></pre></div><blockquote>
+<p>Help on built-in function round in module builtins:<br>
+<br>
+round(number, ndigits=None)</p>
+<blockquote>
+<p>Round a number to a given precision in decimal digits.<br>
+<br>
+The return value is an integer if ndigits is omitted or None. Otherwise the return value has the same type as the number. ndigits may be negative.</p>
+</blockquote>
+</blockquote>
+<p>Hàm <em>help()</em> sẽ xuất ra 2 thông tin sau:</p>
+<ol>
+<li>Nguyên mẫu của hàm <em>round(number, ndigits=None)</em>. Trong trường hợp này, ta có thể thấy rằng hàm <em>round()</em> sẽ nhận một tham số có tên <em>number</em>. Ngoài ra, chúng ta có thể truyền một tham số thứ 2 được đặt tên là <em>ndigits</em>.</li>
+<li>Chú thích về chức năng của hàm bằng tiếng Anh</li>
+</ol>
+<p><strong>Lỗi thường gặp:</strong> khi sử dụng help để tra cứu chức năng của hàm, nhớ là chỉ truyền tên của hàm, chứ không truyền hàm đó với đối số (hiểu đơn giản đối số là đầu vào bạn truyển vào hàm. Ví dụ <em>abs(-4)</em> thì đối số là -4)</p>
+<p>Chuyện gì xảy ra nếu ta sử dụng lời gọi hàm <em>round()</em> như đối số của hàm <em>help()</em>?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(<span style="color:#8be9fd;font-style:italic">round</span>(<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2.01</span>))
+</code></pre></div><blockquote>
+<p>Hãy thử để xem kết quả nhé</p>
+</blockquote>
+<p>Với câu lệnh trên, Python sẽ thực hiện nó từ trong ra ngoài. Đầu tiên, Python sẽ tính giá trị của <em>round(-2.01)</em>, rồi sau đó sẽ thực hiện hàm <em>help()</em> với đối số là giá trị trả về của hàm <em>round()</em> kia.</p>
+<p>(Và hóa ra, tưởng chừng số nguyên có vẻ đơn giản, thế nhưng rất nhiều thông tin liên quan sẽ được in ra console)</p>
+<p><em>round()</em> là một hàm rất đơn giản, chú thích của nó rất ngắn gọn. <em>help()</em> sẽ còn hữu dụng hơn nữa khi xử lý các hàm phức tạp hơn, có nhiều tham số như print. Bên dưới là kết quả của lời gọi lệnh <em>help(print)</em>, đừng lo nếu nó quá khó hiểu&hellip; Hiện tại, hãy xem liệu bạn có thể hiểu được gì mới từ kết quả này không.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(<span style="color:#8be9fd;font-style:italic">print</span>)
+</code></pre></div><blockquote>
+<p>Help on built-in function print in module builtins:<br>
+<br>
+print(&hellip;)</p>
+<blockquote>
+<p>print(value, &hellip;, sep=' &lsquo;, end='\n&rsquo;, file=sys.stdout, flush=False)<br>
+<br>
+Prints the values to a stream, or to sys.stdout by default.<br>
+Optional keyword arguments:<br>
+file:  a file-like object (stream); defaults to the current sys.stdout.<br>
+sep:   string inserted between values, default a space.<br>
+end:   string appended after the last value, default a newline.<br>
+flush: whether to forcibly flush the stream.</p>
+</blockquote>
+</blockquote>
+<p>Nếu các bạn nhìn kỹ, bạn sẽ thấy <em>print()</em> có thể nhận một tham số gọi là <em>sep</em>, và đối số truyền vào sẽ đươc sử dụng là separator (vách ngăn) khi bạn truyền nhiều giá trị vào hàm.</p>
+<h1 id="defining-functions-khai-báo-hàm">Defining functions (Khai báo hàm)</h1>
+<p>Sử dụng các hàm có sẵn trong thư viên Python giúp chúng ta thực hiện được rất nhiều công việc khác nhau, vậy nhưng chúng ta sẽ bị giới hạn nhiều thứ nếu như ta không tự định nghĩa những hàm mới để sử dụng với mục đích riêng. Bên dưới đây là một ví dụ rất đơn giản</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">least_difference</span>(a, b, c):
+    diff1 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(a <span style="color:#ff79c6">-</span> b)
+    diff2 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(b <span style="color:#ff79c6">-</span> c)
+    diff3 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(a <span style="color:#ff79c6">-</span> c)
+    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">min</span>(diff1, diff2, diff3)
+</code></pre></div><p>Chúng ta đang định nghĩa một hàm là <em>least_difference</em>, nhận 3 tham số a, b và c.</p>
+<p>Việc định nghĩa hàm được bắt đầu với từ khoá <em>def</em>, theo sau là một tên hàm, và danh sách các tham số được đặt trong ngoặc đơn, ngăn cách bằng các dấu phẩy. Phần code được viết thụt lùi đằng sau dấu hai chấm (:) sẽ được thực thi khi hàm được gọi.</p>
+<p><em>return</em> là một từ khoá khác luôn đi liền với các hàm. Khi Python đoán nhận lệnh <em>return</em>, nó sẽ thoát khỏi hàm ngay lập tức, rồi chuyển giá trị được trả về thế chỗ cho vị trí gọi hàm.</p>
+<p>Bạn có hiểu hàm <em>least_difference()</em> thực hiện chức năng gì khi đọc mã nguồn không? Nếu như ta không chắc chắn về chức năng của một hàm nào đó, ta có thể thử gọi hàm với một số giá trị:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(
+    least_difference(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>),
+    least_difference(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>),
+    least_difference(<span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">7</span>), <span style="color:#6272a4"># Python allows trailing commas in argument lists. How nice is that?</span>
+)
+</code></pre></div><blockquote>
+<p>9 0 1</p>
+</blockquote>
+<p>Hoặc ta có thể thử chạy hàm help xem nó có cho ta biết thêm được gì không.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(least_difference)
+</code></pre></div><blockquote>
+<p>Help on function least_difference in module __<em>main</em>__:<br>
+<br>
+least_difference(a, b, c)</p>
+</blockquote>
+<p>Python không đù thông minh để đọc code của mình và chuyển nó thành hướng dẫn sử dụng. Thế nhưng khi ta viết một hàm, chúng ta có thể đính kèm hướng dẫn bên trong <em>docstring</em>.</p>
+<h2 id="docstring">Docstring</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">least_difference</span>(a, b, c):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">    Return the smallest difference between any two numbers among a, b and c.
+</span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+    diff1 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(a <span style="color:#ff79c6">-</span> b)
+    diff2 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(b <span style="color:#ff79c6">-</span> c)
+    diff3 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(a <span style="color:#ff79c6">-</span> c)
+    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">min</span>(diff1, diff2, diff3)
+</code></pre></div><p><em>Docstring</em> là một khoảng ký tự nằm trong cặp 3 dấu ngoặc kép, và có thể trải dài trên nhiều dòng, nhưng bắt buộc phải nằm ở ngay dưới dòng lệnh định nghĩa hàm. Khi ta gọi đến hàm <em>help()</em> với đối số là một hàm thì <em>docstring</em> sẽ được in ra màn hình.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(least_difference)
+</code></pre></div><blockquote>
+<p>Help on function least_difference in module __<em>main</em>__:<br>
+<br>
+least_difference(a, b, c)</p>
+<blockquote>
+<p>Return the smallest difference between any two numbers among a, b and c.</p>
+</blockquote>
+</blockquote>
+<p>Thông thường, những lập trình viên tốt sẽ luôn sử dụng <em>docstring</em>, trừ khi đoạn code đấy được lược bỏ sau khi sử dụng.</p>
+<h2 id="functions-that-dont-return-hàm-không-trả-về">Functions that don&rsquo;t return (Hàm không trả về)</h2>
+<p>Chuyện gì sẽ xảy ra nếu như không có lệnh <em>return</em> trong hàm của ta?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">least_difference</span>(a, b, c):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Return the smallest difference between any two numbers
+</span><span style="color:#f1fa8c">    among a, b and c.
+</span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+    diff1 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(a <span style="color:#ff79c6">-</span> b)
+    diff2 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(b <span style="color:#ff79c6">-</span> c)
+    diff3 <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">abs</span>(a <span style="color:#ff79c6">-</span> c)
+    <span style="color:#8be9fd;font-style:italic">min</span>(diff1, diff2, diff3)
+    
+<span style="color:#8be9fd;font-style:italic">print</span>(
+    least_difference(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>),
+    least_difference(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>),
+    least_difference(<span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">7</span>),
+)
+</code></pre></div><blockquote>
+<p>None None None</p>
+</blockquote>
+<p>Python cho phép chúng ta định nghĩa những hàm như vậy. Kết quả khi thực hiện hàm này là giá trị được đặt tên là <em>None</em>. Nó tương đương với giá trị <em>Null</em> trong các ngôn ngữ khác.</p>
+<p>Nếu không có câu lệnh trả về, chương trình trên có thể coi là vô nghĩa, thế nhưng hàm ấy có thể thực hiện các chức năng hữu ích mà không cần trả về giá trị nào. Chúng ta đã thấy hai hàm như vậy, chính là hàm <em>print()</em> và <em>help()</em>. Chúng ta chỉ gọi những hàm ấy với mục đích in ra trên màn hình. Những mục đích khác với việc trả về giá trị, hay là viết dữ liệu vào tên, hoặc biến đổi giá trị được truyền vào.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mystery <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">print</span>()
+<span style="color:#8be9fd;font-style:italic">print</span>(mystery)
+</code></pre></div><blockquote>
+<p>None</p>
+</blockquote>
+<h2 id="default-arguments-tham-số-mặc-định">Default arguments (Tham số mặc định)</h2>
+<p>Khi ta gọi hàm <em>help(print)</em>, chúng ta thấy rằng hàm <em>print()</em> có các tham số phụ. Ví dụ chúng ta có thể truyền một giá trị cho biến <em>sep</em> để ngăn cách các chuỗi được truyền vào.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, sep<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39; &lt; &#39;</span>)
+</code></pre></div><blockquote>
+<p>1 &lt; 2 &lt; 3</p>
+</blockquote>
+<p>Thế nhưng nếu ta không chuyển giá trị vào, hàm sẽ sử dụng giá trị <em>sep</em> mặc định là ‘ ‘ (một dấu cách)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>)
+</code></pre></div><blockquote>
+<p>1 2 3</p>
+</blockquote>
+<p>Việc định nghĩa các tham số phụ với giá trị mặc định khá dễ.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">greet</span>(who<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Colin&#34;</span>):
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Hello,&#34;</span>, who)
+    
+greet()
+greet(who<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Kaggle&#34;</span>)
+<span style="color:#6272a4"># (In this case, we don&#39;t need to specify the name of the argument, because it&#39;s unambiguous.)</span>
+greet(<span style="color:#f1fa8c">&#34;world&#34;</span>)
+</code></pre></div><blockquote>
+<p>Hello, Colin<br>
+Hello, Kaggle<br>
+Hello, world</p>
+</blockquote>
+<h2 id="functions-applied-to-functions-hàm-nhận-đối-số-là-hàm">Functions Applied to Functions (Hàm nhận đối số là hàm)</h2>
+<p>Ta có thể truyền một hàm như đối số cho hàm khác. Dưới đây là các ví dụ để giúp ta hiểu rõ hơn điều này.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">mult_by_five</span>(x):
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">*</span> x
+
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">call</span>(fn, arg):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Call fn on arg&#34;&#34;&#34;</span>
+    <span style="color:#ff79c6">return</span> fn(arg)
+
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">squared_call</span>(fn, arg):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Call fn on the result of calling fn on arg&#34;&#34;&#34;</span>
+    <span style="color:#ff79c6">return</span> fn(fn(arg))
+
+<span style="color:#8be9fd;font-style:italic">print</span>(
+    call(mult_by_five, <span style="color:#bd93f9">1</span>),
+    squared_call(mult_by_five, <span style="color:#bd93f9">1</span>), 
+    sep<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>, <span style="color:#6272a4"># &#39;\n&#39; is the newline character - it starts a new line</span>
+)
+</code></pre></div><blockquote>
+<p>5<br>
+25</p>
+</blockquote>
+<p>Hàm nhận hàm làm đối số được gọi là hàm bậc cao. Về sau ta có thể sử dụng kiến thức này. Thế nhưng trong Python có các hàm bậc cao chúng ta có thể gọi.</p>
+<p>Ta sẽ quan sát một ví dụ thú vị sử dụng hàm <em>max()</em></p>
+<p>Mặc định, hàm max sẽ trả về giá trị lớn nhất giữa các đối số truyền vào. Nhưng nếu ta truyền vào hàm tham số key tuỳ chọn, nó sẽ trả về giá trị x sao cho hàm <em>key(x)</em> là tối đa (hay ta còn gọi chức năng này là argmax)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">mod_5</span>(x):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Return the remainder of x after dividing by 5&#34;&#34;&#34;</span>
+    <span style="color:#ff79c6">return</span> x <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">5</span>
+
+<span style="color:#8be9fd;font-style:italic">print</span>(
+    <span style="color:#f1fa8c">&#39;Which number is biggest?&#39;</span>,
+    <span style="color:#8be9fd;font-style:italic">max</span>(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">51</span>, <span style="color:#bd93f9">14</span>),
+    <span style="color:#f1fa8c">&#39;Which number is the biggest modulo 5?&#39;</span>,
+    <span style="color:#8be9fd;font-style:italic">max</span>(<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">51</span>, <span style="color:#bd93f9">14</span>, key<span style="color:#ff79c6">=</span>mod_5),
+    sep<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#39;</span>,
+)
+</code></pre></div><blockquote>
+<p>Which number is biggest?<br>
+100<br>
+Which number is the biggest modulo 5?<br>
+14</p>
+</blockquote>
+<p>Vậy là qua bài viết này, ta đã biết thêm về hàm trong Python và vài thứ thú vị liên quan đến hàm. Cảm ơn bạn đã dành thời gian quí báu của mình để đọc.</p>
+<p>Cuối cùng là lời cảm ơn sâu sắc tới <a href="https://www.facebook.com/spun.sugar.on.a.stick">Trương Quốc Quân</a> - người đồng hành cùng mình trong series bài viết này.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/python/hello-python/" data-toggle="tooltip" data-placement="top" title="Hello Python">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
