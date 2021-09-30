@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Booleans and Conditionals</title>
+      <link>https://khnhkd.github.io/post/python/booleans-and-conditionals/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/python/booleans-and-conditionals/</guid>
+      <description>Booleans Python có một kiểu dữ liệu là bool. Nó nhận hai giá trị là True hoặc False.
+x = True print(x) print(type(x))  True
+&amp;lt;class &amp;lsquo;bool&amp;rsquo;&amp;gt;
+ Thường chúng ta sẽ không trực tiếp sử dụng các giá trị True/False này, mà ta sẽ sử dụng kết quả của các phép toán Boolean. Chúng ta sẽ sử dụng những toán tử sau để làm việc với kiểu dữ liệu này.</description>
+    </item>
+    
+    <item>
       <title>Function and Getting Help</title>
       <link>https://khnhkd.github.io/post/python/function-and-getting-help/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>

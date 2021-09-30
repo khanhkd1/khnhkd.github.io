@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Booleans and Conditionals" />
+    <meta property="og:title" content="Booleans and Conditionals" />
+    <meta property="twitter:title" content="Booleans and Conditionals" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Booleans and Conditionals-</title>
+
+    <link rel="canonical" href="/post/python/booleans-and-conditionals/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/data-science">data-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/python">python</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Booleans and Conditionals</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Sunday, September 26, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#booleans">Booleans</a>
+      <ul>
+        <li><a href="#comparison-operations-so-sánh">Comparison Operations (So sánh)</a></li>
+        <li><a href="#combining-boolean-values-phép-toán-với-các-giá-trị-boolean">Combining Boolean Values (Phép toán với các giá trị boolean)</a></li>
+      </ul>
+    </li>
+    <li><a href="#conditionals-điều-kiện">Conditionals (Điều kiện)</a>
+      <ul>
+        <li><a href="#boolean-conversion-chuyển-đổi">Boolean conversion (Chuyển đổi)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h1 id="booleans">Booleans</h1>
+<p>Python có một kiểu dữ liệu là <em>bool</em>. Nó nhận hai giá trị là <em>True</em> hoặc <em>False</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">True</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(x)
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">type</span>(x))
+</code></pre></div><blockquote>
+<p>True<br>
+&lt;class &lsquo;bool&rsquo;&gt;</p>
+</blockquote>
+<p>Thường chúng ta sẽ không trực tiếp sử dụng các giá trị <em>True/False</em> này, mà ta sẽ sử dụng kết quả của các <strong>phép toán Boolean</strong>. Chúng ta sẽ sử dụng những toán tử sau để làm việc với kiểu dữ liệu này.</p>
+<h2 id="comparison-operations-so-sánh">Comparison Operations (So sánh)</h2>
+<table>
+<thead>
+<tr>
+<th>Toán tử</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a == b</td>
+<td>a bằng b?</td>
+</tr>
+<tr>
+<td>a &lt; b</td>
+<td>a nhỏ hơn b?</td>
+</tr>
+<tr>
+<td>a &lt;= b</td>
+<td>a nhỏ hơn hoặc bằng b?</td>
+</tr>
+<tr>
+<td>a != b</td>
+<td>a khác b?</td>
+</tr>
+<tr>
+<td>a &gt; b</td>
+<td>a lớn hơn b?</td>
+</tr>
+<tr>
+<td>a &gt;= b</td>
+<td>a lớn hơn hoặc bằng b?</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">can_run_for_president</span>(age):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Can someone of the given age run for president in the US?&#34;&#34;&#34;</span>
+    <span style="color:#6272a4"># The US Constitution says you must be at least 35 years old</span>
+    <span style="color:#ff79c6">return</span> age <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">35</span>
+
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Can a 19-year-old run for president?&#34;</span>, can_run_for_president(<span style="color:#bd93f9">19</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Can a 45-year-old run for president?&#34;</span>, can_run_for_president(<span style="color:#bd93f9">45</span>))
+</code></pre></div><blockquote>
+<p>Can a 19-year-old run for president? False<br>
+Can a 45-year-old run for president? True</p>
+</blockquote>
+<p>Thường các phép so sánh sẽ trả về kết quả đúng như ta dự đoán</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#bd93f9">3.0</span> <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">3</span>
+</code></pre></div><blockquote>
+<p>True</p>
+</blockquote>
+<p>Nhưng đôi khi kết quả lại không như bạn nghĩ</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#39;3&#39;</span> <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">3</span>
+</code></pre></div><blockquote>
+<p>False</p>
+</blockquote>
+<blockquote>
+<p>Bạn có thể đoán tại sao kết quả lại ra False chứ? Gợi ý: hãy sử dụng hàm type để biết <em>&lsquo;3&rsquo;</em> và <em>3</em> khác nhau như thế nào nhé.</p>
+</blockquote>
+<p>Ta có thể sử dụng kết hợp các toán tử Boolean với toán tử số học mà ta đã được học ở bài trước để đánh giá bất kỳ một biểu thức toán học nào. Ví dụ, chúng ta có thể kiểm tra tính chẵn lẻ dựa trên việc so sánh phép toán chia lấy dư dư một số bất kỳ với 2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">is_odd</span>(n):
+    <span style="color:#ff79c6">return</span> (n <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">2</span>) <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>
+
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Is 100 odd?&#34;</span>, is_odd(<span style="color:#bd93f9">100</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Is -1 odd?&#34;</span>, is_odd(<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>))
+</code></pre></div><blockquote>
+<p>Is 100 odd? False<br>
+Is -1 odd? True</p>
+</blockquote>
+<p>Hãy nhớ rằng toán tử so sánh là “==”. Nếu bạn viết <em>n == 2</em>, bạn đang thực hiện so sánh số n có giá trị bằng 2 không. Khi bạn viết <em>n = 2</em>, bạn đang gán giá trị 2 cho biến n.</p>
+<h2 id="combining-boolean-values-phép-toán-với-các-giá-trị-boolean">Combining Boolean Values (Phép toán với các giá trị boolean)</h2>
+<p>Ta có thể thực hiện các phép toán với các giá trị Boolean dựa trên khái niệm phép giao, phép hợp và phép đối trong tập hợp. Từ khóa của các phép này trong Python lần lượt là AND, OR và NOT.</p>
+<p>Với các toán tử trên, chúng ta có thể khiến hàm can_run_for_president chạy chính xác hơn:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">can_run_for_president</span>(age, is_natural_born_citizen):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Can someone of the given age and citizenship status run for president in the US?&#34;&#34;&#34;</span>
+    <span style="color:#6272a4"># The US Constitution says you must be a natural born citizen *and* at least 35 years old</span>
+    <span style="color:#ff79c6">return</span> is_natural_born_citizen <span style="color:#ff79c6">and</span> (age <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">35</span>)
+
+<span style="color:#8be9fd;font-style:italic">print</span>(can_run_for_president(<span style="color:#bd93f9">19</span>, <span style="color:#ff79c6">True</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(can_run_for_president(<span style="color:#bd93f9">55</span>, <span style="color:#ff79c6">False</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(can_run_for_president(<span style="color:#bd93f9">55</span>, <span style="color:#ff79c6">True</span>))
+</code></pre></div><blockquote>
+<p>False<br>
+False<br>
+True</p>
+</blockquote>
+<p>Bạn có thể đoán nhanh kết quả của biểu thức Boolean dưới không?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">True</span> <span style="color:#ff79c6">or</span> <span style="color:#ff79c6">True</span> <span style="color:#ff79c6">and</span> <span style="color:#ff79c6">False</span>
+</code></pre></div><p>Để trả lời cho câu hỏi này, chúng ta cần biết được thứ tự của các toán tử Boolean.</p>
+<p>Ví dụ, lệnh AND có độ ưu tiên cáo hơn OR. Chính vì vậy ta sẽ thực hiện phép <em>TRUE and False</em> trước, nó có kết quả là <em>False</em>. Sau đó thực hiện phép <em>True or False</em> và kết quả cuối cùng của biểu thức là <em>True</em>.</p>
+<p>Nếu ta thực hiện hiểu thức từ trái sang phải thì kết quả sẽ là gì? <em>True of True = True</em> và _True and <em>False = False</em>.</p>
+<p>Ta luôn có thể ghi nhớ thứ tự ưu tiên của các phép toán, thế nhưng để chặt chẽ hơn, ta nên sử dụng dấu ngoặc.</p>
+<p>Hãy nhìn vào ví dụ sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">prepared_for_weather <span style="color:#ff79c6">=</span> have_umbrella <span style="color:#ff79c6">or</span> rain_level <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">and</span> have_hood <span style="color:#ff79c6">or</span> <span style="color:#ff79c6">not</span> rain_level <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">and</span> is_workday
+</code></pre></div><p>Biểu thức này xem xét việc ta có bị kẹt nếu trời đổ cơn mưa không,</p>
+<ul>
+<li>Nếu như ta có cái ô</li>
+<li>Hoặc nếu như trời chỉ mưa nhẹ và ta có mũ</li>
+<li>Nếu không, ta vẫn sẽ ổn, trừ khi trời mưa và đó là ngày thường</li>
+</ul>
+<p>Thế nhưng, bạn có thể thấy đoạn code trên vừa khó đọc, mà còn có lỗi. Ta có thể giải quyết vấn đề này bằng cách thêm vài dấu ngoặc:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">prepared_for_weather <span style="color:#ff79c6">=</span> have_umbrella <span style="color:#ff79c6">or</span> (rain_level <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">5</span> <span style="color:#ff79c6">and</span> have_hood) <span style="color:#ff79c6">or</span> <span style="color:#ff79c6">not</span> (rain_level <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">and</span> is_workday)
+</code></pre></div><p>Nếu cảm thấy vẫn khó đọc, ta có thể tiếp tục phân nhỏ lệnh trên bằng cách thêm vài dấu ngoặc nữa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">prepared_for_weather <span style="color:#ff79c6">=</span> have_umbrella <span style="color:#ff79c6">or</span> ((rain_level <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">and</span> have_hood) <span style="color:#ff79c6">or</span> (<span style="color:#ff79c6">not</span> (rain_level <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">and</span> is_workday))
+</code></pre></div><p>Bây giờ bạn có thể đọc và hiểu dễ dàng hơn chứ? Ngoài ra ta còn có thể phân biểu thức trên thành nhiều hàng như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">prepared_for_weather <span style="color:#ff79c6">=</span> (
+    have_umbrella 
+    <span style="color:#ff79c6">or</span> ((rain_level <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">and</span> have_hood) 
+    <span style="color:#ff79c6">or</span> (<span style="color:#ff79c6">not</span> (rain_level <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">and</span> is_workday))
+)
+</code></pre></div><h1 id="conditionals-điều-kiện">Conditionals (Điều kiện)</h1>
+<p>Kiểu Boolean sẽ phát huy năng lực nhất khi được kết hợp với các cấu trúc điều kiện rẽ nhánh, sử dụng các từ khóa if, elif và else.</p>
+<p>Các cấu trúc rẽ nhánh, thường gọi là các câu lệnh <em>if – then</em>, giúp ta kiểm soát được khối code này sẽ được thực thi dựa trên kết quả của các biểu thức Boolean. Dưới đây là một ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">inspect</span>(x):
+    <span style="color:#ff79c6">if</span> x <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>:
+        <span style="color:#8be9fd;font-style:italic">print</span>(x, <span style="color:#f1fa8c">&#34;is zero&#34;</span>)
+    <span style="color:#ff79c6">elif</span> x <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+        <span style="color:#8be9fd;font-style:italic">print</span>(x, <span style="color:#f1fa8c">&#34;is positive&#34;</span>)
+    <span style="color:#ff79c6">elif</span> x <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>:
+        <span style="color:#8be9fd;font-style:italic">print</span>(x, <span style="color:#f1fa8c">&#34;is negative&#34;</span>)
+    <span style="color:#ff79c6">else</span>:
+        <span style="color:#8be9fd;font-style:italic">print</span>(x, <span style="color:#f1fa8c">&#34;is unlike anything I&#39;ve ever seen...&#34;</span>)
+
+inspect(<span style="color:#bd93f9">0</span>)
+inspect(<span style="color:#ff79c6">-</span><span style="color:#bd93f9">15</span>)
+</code></pre></div><blockquote>
+<p>0 is zero<br>
+-15 is negative</p>
+</blockquote>
+<p>Từ khoá <em>if</em> và <em>else</em> được sử dụng rộng rãi trong nhiều ngôn ngữ lập trình. Có một từ khoá thú vị ở đây là <em>elif</em> - nó được rút gọn từ <em>else if</em>. Trong cấu trúc rẽ nhánh thì khối lệnh <em>elif</em> và <em>else</em> là tuỳ chọn, có nghĩa là nó có thể xuất hiện hoặc không, còn khối lệnh <em>if</em> bắt buộc phải có. Ngoài ra thì ta có thể thêm bao nhiêu khối lệnh <em>elif</em> cũng được, nhưng chỉ được một khối lệnh <em>else</em> ở cuối cùng.</p>
+<p>Chúng ta hãy chú ý cách Python sử dụng dấu hai chấm (:) và khoảng trắng để phân tách các khối lệnh tách biệt hẳn với nhau. Cách viết này giống như cách ta định nghĩa một hàm mới, câu lệnh khai báo hàm sẽ kết thúc với dấu hai chấm (:), và dòng tiếp theo được thụt lùi. Những dòng thụt lùi tiếp theo thuộc về khối code đó, cho đến khi ta gặp được dòng không thụt lùi đầu tiên.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">f</span>(x):
+    <span style="color:#ff79c6">if</span> x <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>:
+        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Only printed when x is positive; x =&#34;</span>, x)
+        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Also only printed when x is positive; x =&#34;</span>, x)
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Always printed, regardless of x&#39;s value; x =&#34;</span>, x)
+
+f(<span style="color:#bd93f9">1</span>)
+f(<span style="color:#bd93f9">0</span>)
+</code></pre></div><blockquote>
+<p>Only printed when x is positive; x = 1<br>
+Also only printed when x is positive; x = 1<br>
+Always printed, regardless of x&rsquo;s value; x = 1<br>
+Always printed, regardless of x&rsquo;s value; x = 0</p>
+</blockquote>
+<h2 id="boolean-conversion-chuyển-đổi">Boolean conversion (Chuyển đổi)</h2>
+<p>Ta đã thấy chức năng ép kiểu, với hàm <em>int()</em> chuyển bất kỳ đối số nào thành int - hay còn gọi là số nguyên, và hàm <em>float()</em> chuyển tất cả đối số nào thành float - số thực. Nên có thể bạn sẽ không hề ngạc nhiên nếu như trong Python có tích hợp hàm <em>bool()</em> để biến các đối số truyền vào thành dạng Boolean.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">bool</span>(<span style="color:#bd93f9">1</span>)) <span style="color:#6272a4"># all numbers are treated as true, except 0</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">bool</span>(<span style="color:#bd93f9">0</span>))
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">bool</span>(<span style="color:#f1fa8c">&#34;asf&#34;</span>)) <span style="color:#6272a4"># all strings are treated as true, except the empty string &#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#8be9fd;font-style:italic">bool</span>(<span style="color:#f1fa8c">&#34;&#34;</span>))
+<span style="color:#6272a4"># Generally empty sequences (strings, lists, and other types we&#39;ve yet to see like lists and tuples)</span>
+<span style="color:#6272a4"># are &#34;falsey&#34; and the rest are &#34;truthy&#34;</span>
+</code></pre></div><blockquote>
+<p>True<br>
+False<br>
+True<br>
+False</p>
+</blockquote>
+<p>Ta có thể sử dụng các biến không thuộc kiểu Boolean trong câu điều kiện if, và Python sẽ tự động thế các biến này với giá trị Boolean tương ứng chính xác:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">if</span> <span style="color:#bd93f9">0</span>:
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#bd93f9">0</span>)
+<span style="color:#ff79c6">elif</span> <span style="color:#f1fa8c">&#34;spam&#34;</span>:
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;spam&#34;</span>)
+</code></pre></div><blockquote>
+<p>spam</p>
+</blockquote>
+<p>Cuối cùng là lời cảm ơn sâu sắc tới <a href="https://www.facebook.com/spun.sugar.on.a.stick">Trương Quốc Quân</a> - người đồng hành cùng mình trong series bài viết này.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/python/function-and-getting-help/" data-toggle="tooltip" data-placement="top" title="Function and Getting Help">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

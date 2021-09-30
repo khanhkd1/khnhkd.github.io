@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Booleans and Conditionals</title>
+      <link>https://khnhkd.github.io/post/python/booleans-and-conditionals/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/python/booleans-and-conditionals/</guid>
+      <description>Booleans Python có một kiểu dữ liệu là bool. Nó nhận hai giá trị là True hoặc False.
+x = True print(x) print(type(x))  True
+&amp;lt;class &amp;lsquo;bool&amp;rsquo;&amp;gt;
+ Thường chúng ta sẽ không trực tiếp sử dụng các giá trị True/False này, mà ta sẽ sử dụng kết quả của các phép toán Boolean. Chúng ta sẽ sử dụng những toán tử sau để làm việc với kiểu dữ liệu này.</description>
+    </item>
+    
+    <item>
       <title>Function and Getting Help</title>
       <link>https://khnhkd.github.io/post/python/function-and-getting-help/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
@@ -55,6 +67,15 @@ Công thức: $$ n!</description>
       
       <guid>https://khnhkd.github.io/post/blog_1/</guid>
       <description>Lý do mình dùng GitHub để viết blog Lý do quan trọng nhất là mình không muốn tốn tiền. Chả là mình đang hăng say viết 1 chiếc blog siêu bé xinh xinh thì đùng, mình không thể gõ LateX trên WordPress (LaTeX là gì?). Sau một hồi mò mẫm thì mình cũng tìm ra được lý do. Đó là mình dùng WordPress free, mà free thì không thể cài plugin hỗ trợ gõ LaTeX.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://khnhkd.github.io/post/financial-aid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/financial-aid/</guid>
+      <description>I’m a student from Vietnam and want to learn Data Algorithms. I think it will be beneficial for me to get into a good firm as an intern. But I’ve no job of my own to carry the expanses to pay for the certificate of this course. I live only for my scholarship. In this circumstance, it is very much difficult for me to gather such amount of money for the certificate.</description>
     </item>
     
   </channel>
