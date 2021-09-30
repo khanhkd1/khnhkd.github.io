@@ -8,18 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Booleans and Conditionals</title>
-      <link>https://khnhkd.github.io/post/python/booleans-and-conditionals/</link>
-      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://khnhkd.github.io/post/python/booleans-and-conditionals/</guid>
-      <description>Booleans Python có một kiểu dữ liệu là bool. Nó nhận hai giá trị là True hoặc False.
-x = True print(x) print(type(x))  True
-&amp;lt;class &amp;lsquo;bool&amp;rsquo;&amp;gt;
- Thường chúng ta sẽ không trực tiếp sử dụng các giá trị True/False này, mà ta sẽ sử dụng kết quả của các phép toán Boolean. Chúng ta sẽ sử dụng những toán tử sau để làm việc với kiểu dữ liệu này.</description>
-    </item>
-    
-    <item>
       <title>Function and Getting Help</title>
       <link>https://khnhkd.github.io/post/python/function-and-getting-help/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
@@ -37,6 +25,18 @@ Trong bài này, chúng ta sẽ học thêm về cách gọi và định nghĩa 
       <guid>https://khnhkd.github.io/post/python/hello-python/</guid>
       <description>Hello, Python! Series này sẽ đề cập những kiến thức cốt lõi về Python để bạn có thể sử dụng Python cho khoa học dữ liệu. Cụ thể, bài viết này sẽ nói qua về cấu trúc câu lệnh, phép gán giá trị cho biến và các toán tử.
 Python được đặt tên theo Monty Python, một đoàn hài kịch nổi tiếng ở Anh. Chính vì vậy, với ví dụ đầu tiên này, chúng tôi muốn tưởng nhớ đến họ bằng qua ví dụ sau đây, phỏng theo bản kịch họ viết về món Spam.</description>
+    </item>
+    
+    <item>
+      <title>Booleans and Conditionals</title>
+      <link>https://khnhkd.github.io/post/python/booleans-and-conditionals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/python/booleans-and-conditionals/</guid>
+      <description>Booleans Python có một kiểu dữ liệu là bool. Nó nhận hai giá trị là True hoặc False.
+x = True print(x) print(type(x))  True
+&amp;lt;class &amp;lsquo;bool&amp;rsquo;&amp;gt;
+ Thường chúng ta sẽ không trực tiếp sử dụng các giá trị True/False này, mà ta sẽ sử dụng kết quả của các phép toán Boolean. Chúng ta sẽ sử dụng những toán tử sau để làm việc với kiểu dữ liệu này.</description>
     </item>
     
   </channel>
