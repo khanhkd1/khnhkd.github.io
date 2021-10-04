@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Lists" />
+    <meta property="og:title" content="Lists" />
+    <meta property="twitter:title" content="Lists" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Lists-</title>
+
+    <link rel="canonical" href="/post/python/lists/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/data-science">data-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/python">python</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Lists</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Monday, October 4, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lists">Lists</a>
+      <ul>
+        <li><a href="#indexing-chỉ-mục">Indexing (Chỉ mục)</a></li>
+        <li><a href="#slicing-cắt-danh-sách">Slicing (Cắt danh sách)</a></li>
+        <li><a href="#changing-lists-thay-đổi-giá-trị-trong-danh-sách">Changing lists (Thay đổi giá trị trong danh sách)</a></li>
+        <li><a href="#list-functions">List functions</a></li>
+        <li><a href="#interlude-objects">Interlude: objects</a></li>
+        <li><a href="#list-methods">List methods</a></li>
+        <li><a href="#tuples">Tuples</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h1 id="lists">Lists</h1>
+<p><em>Lists</em> trong Python là một mảng các giá trị có thứ tự. Có thứ tự giống như chúng ta xếp hàng, nếu chúng ta vào đầu tiên thì ta sẽ đứng đầu - tương ứng với <em>chỉ số 0</em> (hay còn gọi là <em>index</em>) trong <em>Lists</em>. Chú ý rằng trong <em>Lists</em> thì <em>index</em> sẽ bắt đầu từ số 0, và nếu bạn đã từng tiếp xúc với ngôn ngữ lập trình nào khác như C, C++, &hellip; thì <em>Lists</em> trong Python khá tương đồng với <em>array</em> (mảng) trong các ngôn ngữ khác. Dưới đây là ví dụ khai báo một <em>Lists</em> chứa các phần tử là số nguyên tố (mình xin đọc tên tiếng việt là danh sách cho dễ ^^):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">primes <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">7</span>]
+</code></pre></div><p>Chúng ta có thể là kiểu dữ liệu <em>String</em> (chuỗi):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;Mercury&#39;</span>, <span style="color:#f1fa8c">&#39;Venus&#39;</span>, <span style="color:#f1fa8c">&#39;Earth&#39;</span>, <span style="color:#f1fa8c">&#39;Mars&#39;</span>, <span style="color:#f1fa8c">&#39;Jupiter&#39;</span>, <span style="color:#f1fa8c">&#39;Saturn&#39;</span>, <span style="color:#f1fa8c">&#39;Uranus&#39;</span>, <span style="color:#f1fa8c">&#39;Neptune&#39;</span>]
+</code></pre></div><p>Thậm chí có phần tử của danh sách có thể là một danh sách khác:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hands <span style="color:#ff79c6">=</span> [
+    [<span style="color:#f1fa8c">&#39;J&#39;</span>, <span style="color:#f1fa8c">&#39;Q&#39;</span>, <span style="color:#f1fa8c">&#39;K&#39;</span>],
+    [<span style="color:#f1fa8c">&#39;2&#39;</span>, <span style="color:#f1fa8c">&#39;2&#39;</span>, <span style="color:#f1fa8c">&#39;2&#39;</span>],
+    [<span style="color:#f1fa8c">&#39;6&#39;</span>, <span style="color:#f1fa8c">&#39;A&#39;</span>, <span style="color:#f1fa8c">&#39;K&#39;</span>], <span style="color:#6272a4"># (Dấu phẩy sau phần tử cuối cùng là tuỳ chọn, có thể xuất hiện hoặc không)</span>
+]
+<span style="color:#6272a4"># (Ta cũng có thể viết chúng trên cùng một dòng, nhưng sẽ khó đọc hơn)</span>
+hands <span style="color:#ff79c6">=</span> [[<span style="color:#f1fa8c">&#39;J&#39;</span>, <span style="color:#f1fa8c">&#39;Q&#39;</span>, <span style="color:#f1fa8c">&#39;K&#39;</span>], [<span style="color:#f1fa8c">&#39;2&#39;</span>, <span style="color:#f1fa8c">&#39;2&#39;</span>, <span style="color:#f1fa8c">&#39;2&#39;</span>], [<span style="color:#f1fa8c">&#39;6&#39;</span>, <span style="color:#f1fa8c">&#39;A&#39;</span>, <span style="color:#f1fa8c">&#39;K&#39;</span>]]
+</code></pre></div><p>Hơn nữa, cùng trong một danh sách còn có thể chứa nhiều hơn một kiểu dữ liệu, như ví dụ dưới đây thì danh sách chứa kiểu dữ liệu <em>int (số nguyên)</em>, <em>str (chuỗi)</em> và một <em>function (hàm)</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favourite_things <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">32</span>, <span style="color:#f1fa8c">&#39;raindrops on roses&#39;</span>, help]
+</code></pre></div><h2 id="indexing-chỉ-mục">Indexing (Chỉ mục)</h2>
+<p>Nếu ta muốn lấy riêng lẻ một giá trị nào đó, hãy truyền vào <em>index</em> của nó trong danh sách (Hãy nhớ rằng <em>index</em> sẽ bắt đầu từ số 0):</p>
+<p>Trong danh sách có tên là <em>planets</em>, các phần tử đã được sắp xếp theo thứ tự xa dần so với mặt trời. Vậy để lấy ra hành tinh gần mặt trời nhất thì sẽ đứng đầu trong danh sách và có <em>index</em> là 0:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[<span style="color:#bd93f9">0</span>]
+</code></pre></div><blockquote>
+<p>&lsquo;Mercury&rsquo;</p>
+</blockquote>
+<p>Hành tinh gần nhất tiếp theo là gì? Tất nhiên là hành tinh có <em>index</em> là 1 rồi ^^</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[<span style="color:#bd93f9">1</span>]
+</code></pre></div><blockquote>
+<p>&lsquo;Venus&rsquo;</p>
+</blockquote>
+<p>Hành tinh nào sẽ xa nhất? Câu trả lời của bạn sẽ là hành tinh ở vị trí cuối cùng trong danh sách phải không?</p>
+<p>Có một chút vấn đề ở đây rằng khi ta biết số lượng phần tử trong danh sách, ta sẽ dễ dàng lấy được phần tử cuối cùng bằng <em>index</em> của nó. Vậy nếu trong trường hợp ta không biết số lượng phần tử thì sao? Thật may rằng trong Python tồn tại <em>index</em> âm (mình hay gọi là <em>index</em> ngược). Giá trị <em>index</em> bằng -1 thì tương ứng là phần tử cuối cùng, -2 sẽ là phần tử thứ 2 từ cuối lên, tương tự giá trị -3, -4, &hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Hành tinh xa nhất</span>
+planets[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]
+</code></pre></div><blockquote>
+<p>&lsquo;Neptune&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Hành tinh xa thứ 2</span>
+planets[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>]
+</code></pre></div><blockquote>
+<p>&lsquo;Uranus&rsquo;</p>
+</blockquote>
+<h2 id="slicing-cắt-danh-sách">Slicing (Cắt danh sách)</h2>
+<p>Ở mục <em>Indexing</em>, ta đã biết lấy riêng lẻ từng phần tử trong danh sách bằng <em>index</em> của nó, vậy nếu ta muốn lấy nhiều hơn một phần tử thì sao? Câu trả lời của ta là dùng <em>Slicing</em></p>
+<p>Ví dụ dưới đây ta sẽ lấy ra 3 hành tinh gần với mặt trời nhất:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[<span style="color:#bd93f9">0</span>:<span style="color:#bd93f9">3</span>]
+</code></pre></div><blockquote>
+<p>[&lsquo;Mercury&rsquo;, &lsquo;Venus&rsquo;, &lsquo;Earth&rsquo;]</p>
+</blockquote>
+<p><em>planets[0:3]</em> là cách chúng ta lấy các phần tử có <em>index</em> nằm trong khoảng bắt đầu từ 0 và kết thúc tại 3, nhưng chú ý là sẽ không bao gồm số 3.</p>
+<p>Vì trong một danh sách bất kì, phần tử đầu và phần tử cuối là cố định nên ta có thể lược bỏ hai giá trị này như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[:<span style="color:#bd93f9">3</span>]
+</code></pre></div><blockquote>
+<p>[&lsquo;Mercury&rsquo;, &lsquo;Venus&rsquo;, &lsquo;Earth&rsquo;]</p>
+</blockquote>
+<p>Hoặc là lược bỏ phần từ kết thúc nếu ta lấy từ vị trí bắt đầu đến hết danh sách:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[<span style="color:#bd93f9">3</span>:]
+</code></pre></div><blockquote>
+<p>[&lsquo;Mars&rsquo;, &lsquo;Jupiter&rsquo;, &lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;, &lsquo;Neptune&rsquo;]</p>
+</blockquote>
+<p>Câu lệnh trên được hiểu rằng ta lấy tất cả các hành tinh có vị trí thứ 3 trở đi.</p>
+<p>Ta cũng có thể sử dụng <em>index</em> âm khi cắt danh sách:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Lấy tất cả hành tinh trừ hành tinh đầu tiên và cuối cùng</span>
+planets[<span style="color:#bd93f9">1</span>:<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]
+</code></pre></div><blockquote>
+<p>[&lsquo;Venus&rsquo;, &lsquo;Earth&rsquo;, &lsquo;Mars&rsquo;, &lsquo;Jupiter&rsquo;, &lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;]</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># 3 hành tinh cuối cùng</span>
+planets[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>:]
+</code></pre></div><blockquote>
+<p>[&lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;, &lsquo;Neptune&rsquo;]</p>
+</blockquote>
+<h2 id="changing-lists-thay-đổi-giá-trị-trong-danh-sách">Changing lists (Thay đổi giá trị trong danh sách)</h2>
+<p>Trong nhiều ngôn ngữ lập trình thì giá trị trong <em>Array</em> (mảng) là cố định, nghĩa là ta không thể thay đổi giá trị của phần tử. Nhưng trong Python thì ta có thể làm điều này, mọi phần tử trong danh sách đều có thể thay thế giá trị.</p>
+<p>Một cách đơn giản để sửa đổi giá trị là dùng biểu thức <em>Indexing</em> hoặc là <em>Slicing</em>. Dưới đây là một ví dụ nhỏ, ta sẽ đổi tên hành tinh vị trí số 3 từ &lsquo;Mars&rsquo; thành &lsquo;Malacandra&rsquo;:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[<span style="color:#bd93f9">3</span>] <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Malacandra&#39;</span>
+planets
+</code></pre></div><blockquote>
+<p>[&lsquo;Mercury&rsquo;, &lsquo;Venus&rsquo;, &lsquo;Earth&rsquo;, &lsquo;Malacandra&rsquo;, &lsquo;Jupiter&rsquo;, &lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;, &lsquo;Neptune&rsquo;]</p>
+</blockquote>
+<p>Nếu thay đổi giá trị nhiều phần tử, ta hãy dùng <em>Slicing</em> để tiết kiệm thời gian và công sức nhé:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[:<span style="color:#bd93f9">3</span>] <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;Mur&#39;</span>, <span style="color:#f1fa8c">&#39;Vee&#39;</span>, <span style="color:#f1fa8c">&#39;Ur&#39;</span>]
+planets
+</code></pre></div><blockquote>
+<p>[&lsquo;Mur&rsquo;, &lsquo;Vee&rsquo;, &lsquo;Ur&rsquo;, &lsquo;Malacandra&rsquo;, &lsquo;Jupiter&rsquo;, &lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;, &lsquo;Neptune&rsquo;]</p>
+</blockquote>
+<p>Hiệu quả phải không nào? Giờ thì trả các hành tinh về lại vị trí cũ nhé ^^:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets[:<span style="color:#bd93f9">4</span>] <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;Mercury&#39;</span>, <span style="color:#f1fa8c">&#39;Venus&#39;</span>, <span style="color:#f1fa8c">&#39;Earth&#39;</span>, <span style="color:#f1fa8c">&#39;Mars&#39;</span>,]
+</code></pre></div><h2 id="list-functions">List functions</h2>
+<p>Python cung cấp cho ta những hàm hữu ích để làm việc với <em>Lists</em></p>
+<h3 id="len">len()</h3>
+<p>Hàm <em>len()</em> trả cho ta số lượng phần tử có trong danh sách</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Ta có bao nhiêu phần tử trong danh sách các hành tinh?</span>
+<span style="color:#8be9fd;font-style:italic">len</span>(planets)
+</code></pre></div><blockquote>
+<p>8</p>
+</blockquote>
+<h3 id="sort">sort()</h3>
+<p>Hàm <em>sort()</em> trả về một danh sách đã được sắp xếp</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Các hành tinh được sắp xếp theo thứ tự trong bảng chữ cái</span>
+<span style="color:#8be9fd;font-style:italic">sorted</span>(planets)
+</code></pre></div><blockquote>
+<p>[&lsquo;Earth&rsquo;, &lsquo;Jupiter&rsquo;, &lsquo;Mars&rsquo;, &lsquo;Mercury&rsquo;, &lsquo;Neptune&rsquo;, &lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;, &lsquo;Venus&rsquo;]</p>
+</blockquote>
+<h3 id="sum">sum()</h3>
+<p>Hàm <em>sum()</em> trả về tổng các phần tử trong một danh sách mà mọi phần tử đều có kiểu dữ liệu là số</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">primes <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">7</span>]
+<span style="color:#8be9fd;font-style:italic">sum</span>(primes)
+</code></pre></div><blockquote>
+<p>17</p>
+</blockquote>
+<p>Đừng dại mà dùng hàm <em>sum()</em> với danh sách có kiểu dữ liệu khác số nguyên hay số thực nhé, vì chương trình của ta sẽ không thể thực thi được.</p>
+<p>Với các danh sách có kiểu dữ liệu là số, ta còn có thêm hai hàm hữu dụng khác là <em>max()</em> và <em>min()</em>. Đọc tên hàm thì phần nào bạn đã đoán được chức năng của nó rồi đúng không? Hãy xem ví dụ sau nhé:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">max</span>(primes)
+</code></pre></div><blockquote>
+<p>7</p>
+</blockquote>
+<h2 id="interlude-objects">Interlude: objects</h2>
+<p>Trong Python thì mọi thứ đều là <em>đối tượng</em>, vậy <em>đối tượng</em> là gì?</p>
+<p>Lấy ví dụ thì <em>con người</em> là mội đối tượng. Đối tượng này có <em>thuộc tính</em> là: tay, chân, mắt, mũi, &hellip; Trong Python, bạn có thể truy cập các thuộc tính này bằng dấu <em>chấm</em>.</p>
+<p>Một ví dụ khác, các số trong Python đều có một thuộc tính gọi là <em>imag</em>, nó có chức năng lấy phần ảo của số. Nếu bạn còn nhớ thì số phức có dạng <em>(a + bj)</em>, trong đó b được gọi là phần ảo. Và mọi số thực thì đều có phần ảo bằng 0.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">12</span>
+<span style="color:#6272a4"># x là số thực, vậy nên phần ảo nó sẽ bằng 0</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(x<span style="color:#ff79c6">.</span>imag)
+<span style="color:#6272a4"># Còn c là số phức, bạn có đoán được phần ảo của nó bằng mấy không?</span>
+c <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">12</span> <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">3</span>j
+<span style="color:#8be9fd;font-style:italic">print</span>(c<span style="color:#ff79c6">.</span>imag)
+</code></pre></div><blockquote>
+<p>0<br>
+3.0</p>
+</blockquote>
+<p>Ngoài thuộc tính ra thì <em>đối tượng</em> còn có <em>phương thức</em>. Mỗi phương thức được định nghĩa gắn với một chức năng nào đó. Quay lại với đối tượng con người, ta có các hành động (chức năng) là cười, nói, đi, ngồi, &hellip; Đây được gọi là phương thức của đối tượng <em>con người</em>. Tóm gọn lại thì những thứ phi chức năng gắn liền với <em>đối tượng</em> thì được gọi là <em>thuộc tính</em>, những thứ có chức năng (hành động) thì được gọi là <em>phương thức</em>.</p>
+<p>Lấy ví dụ, kiểu số trong Python có một phương thức gọi là <em>bit_length</em>, ta sẽ gọi nó như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x<span style="color:#ff79c6">.</span>bit_length
+</code></pre></div><blockquote>
+<p>&lt;function int.bit_length()&gt;</p>
+</blockquote>
+<p>Nhìn khá là dị đúng không, điều này là do mình gọi phương thức chưa đúng. Để sửa lại, ta sẽ thêm vào sau nó dấu ngoặc đơn:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x<span style="color:#ff79c6">.</span>bit_length()
+</code></pre></div><blockquote>
+<p>4</p>
+</blockquote>
+<p>Nếu không biết chức năng của phương thức <em>bit_length()</em> là gì, ta sẽ nhờ sự trợ giúp của hàm <em>help()</em> như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(x<span style="color:#ff79c6">.</span>bit_length)
+</code></pre></div><blockquote>
+<p>Help on built-in function bit_length:<br>
+<br>
+bit_length() method of builtins.int instance</p>
+<blockquote>
+<pre><code>Number of bits necessary to represent self in binary.
+
+&gt;&gt;&gt;bin(37)
+'0b100101'
+&gt;&gt;&gt;(37).bit_length()
+6
+</code></pre>
+</blockquote>
+</blockquote>
+<p>Các ví dụ trên có vẻ khá tối nghĩa, mong là bạn sẽ hiểu hoặc đọc thêm tài liệu nữa. Tiếp theo ta sẽ tìm hiểu các phương thức đi kèm với đối tượng <em>Lists</em></p>
+<h2 id="list-methods">List methods</h2>
+<h3 id="append">append</h3>
+<p>list.append sẽ thêm một phần tử và cuối danh sách</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets<span style="color:#ff79c6">.</span>append(<span style="color:#f1fa8c">&#39;Pluto&#39;</span>)
+</code></pre></div><p>Bạn có thắc mắc tại sao phương thức trên không trả về giá trị gì không? Vậy hãy dùng <em>help(planets.append)</em> để được giải đáp nhé.</p>
+<blockquote>
+<p>Chú ý: <em>append</em> là một phương thức đi kèm với <em>Lists</em>, vậy nên ta không thể gọi hàm <em>help</em> khi truyển vào <em>append</em> đứng một mình.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(planets<span style="color:#ff79c6">.</span>append)
+</code></pre></div><blockquote>
+<p>Help on built-in function append:<br>
+<br>
+append(object, /) method of builtins.list instance</p>
+<blockquote>
+<p>L.append(object) -&gt; None &ndash; append object to end of the list.</p>
+</blockquote>
+</blockquote>
+<p>Từ khoá <em>-&gt; None</em> chỉ cho ta rằng <em>list.append</em> không trả về gì cả. Nhưng ta có thể kiểm tra lại các phần tử trong <em>planets</em> sau khi được thêm phần tử như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets
+</code></pre></div><blockquote>
+<p>[&lsquo;Mercury&rsquo;, &lsquo;Venus&rsquo;, &lsquo;Earth&rsquo;, &lsquo;Mars&rsquo;, &lsquo;Jupiter&rsquo;, &lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;, &lsquo;Neptune&rsquo;, &lsquo;Pluto&rsquo;]</p>
+</blockquote>
+<h3 id="pop">pop</h3>
+<p>list.pop sẽ loại bỏ phần tử cuối cùng trong danh sách</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets<span style="color:#ff79c6">.</span>pop()
+</code></pre></div><blockquote>
+<p>&lsquo;Pluto&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets
+</code></pre></div><blockquote>
+<p>[&lsquo;Mercury&rsquo;, &lsquo;Venus&rsquo;, &lsquo;Earth&rsquo;, &lsquo;Mars&rsquo;, &lsquo;Jupiter&rsquo;, &lsquo;Saturn&rsquo;, &lsquo;Uranus&rsquo;, &lsquo;Neptune&rsquo;]</p>
+</blockquote>
+<h3 id="searching-lists">Searching lists</h3>
+<p>Bây giờ ta có một danh sách các hành tinh, vậy ta tò mò rằng Earth ở vị trí thứ mấy trong danh sách thì phải làm như thế nào? Phương thức list.index sẽ giúp ta làm điều này một cách dễ dàng</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets<span style="color:#ff79c6">.</span>index(<span style="color:#f1fa8c">&#39;Earth&#39;</span>)
+</code></pre></div><blockquote>
+<p>2</p>
+</blockquote>
+<p>Nó trả về số 2, có nghĩa nó đang ở vị trí số 3, bởi trong danh sách ta bắt đầu từ <em>index</em> 0</p>
+<p>Còn Pluto đang ở vị trí nào?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets<span style="color:#ff79c6">.</span>index(<span style="color:#f1fa8c">&#39;Pluto&#39;</span>)
+</code></pre></div><blockquote>
+<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;<br>
+ValueError Traceback (most recent call last)<br>
+/tmp/ipykernel_20/2263615293.py in <!-- raw HTML omitted --><br>
+&mdash;-&gt; 1 planets.index(&lsquo;Pluto&rsquo;)<br>
+<br>
+ValueError: &lsquo;Pluto&rsquo; is not in list</p>
+</blockquote>
+<p>Ồ, nó trả về lỗi rằng Pluto hiện đang không có trong danh sách cách hành tinh, lý do bởi vì khi giới thiệu phương thức <em>pop</em>, ta đã lấy nó ra khỏi danh sách.</p>
+<p>Để tránh gặp lỗi như này, ta có thể dùng toán tử <em>in</em> để kiểm tra xem một giá trị cụ thể có trong danh sách của ta không</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Earth có trong danh sách các hành tinh không?</span>
+<span style="color:#f1fa8c">&#34;Earth&#34;</span> <span style="color:#ff79c6">in</span> planets
+</code></pre></div><blockquote>
+<p>True</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Calbefraques có phải hành tinh không?</span>
+<span style="color:#f1fa8c">&#34;Calbefraques&#34;</span> <span style="color:#ff79c6">in</span> planets
+</code></pre></div><blockquote>
+<p>False</p>
+</blockquote>
+<p>Có rất nhiều phương thức ta chưa đề cập đến ở đây, nếu tò mò về các thuộc tính, phương thức gắn liền với một đối tượng cụ thể thì bạn hãy sử dụng hàm <em>help</em> và truyền vào đối tượng đó. Ví dụ <em>help(planets)</em> sẽ cho ta biết tất cả thông tin về <em>Lists</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">help(planets)
+</code></pre></div><blockquote>
+<p>Hãy thử và xem kết quả nhé</p>
+</blockquote>
+<h2 id="tuples">Tuples</h2>
+<p><em>Tuples</em> gần giống như <em>Lists</em>, nó chỉ khác nhau ở 2 điểm:</p>
+<ol>
+<li>Thay vì ngoặc vuông như <em>Lists</em> thì <em>Tuples</em> sử dụng dấu ngoặc đơn</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">t <span style="color:#ff79c6">=</span> (<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>)
+<span style="color:#6272a4"># Hoặc cũng có thể bỏ dấu ngoặc đơn đi</span>
+t <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>
+t
+</code></pre></div><blockquote>
+<p>(1, 2, 3)</p>
+</blockquote>
+<ol start="2">
+<li><em>Tuples</em> không thể bị sửa đổi</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">t[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span>
+</code></pre></div><blockquote>
+<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;<br>
+TypeError                                 Traceback (most recent call last)<br>
+/tmp/ipykernel_20/816329950.py in <!-- raw HTML omitted --><br>
+&mdash;-&gt; 1 t[0] = 100<br>
+<br>
+TypeError: &lsquo;tuple&rsquo; object does not support item assignment</p>
+</blockquote>
+<p><em>Tuples</em> thường được sử dụng cho các hàm có nhiều giá trị trả về. Ví dụ, phương thức as_integer_ratio() của đối tượng <em>float</em> sẽ trả về tử số và mẫu số như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.125</span>
+x<span style="color:#ff79c6">.</span>as_integer_ratio()
+</code></pre></div><blockquote>
+<p>(1, 8)</p>
+</blockquote>
+<p>Nhiều giá trị như trên thì ta có thể chỉ định riêng lẻ như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numerator, denominator <span style="color:#ff79c6">=</span> x<span style="color:#ff79c6">.</span>as_integer_ratio()
+<span style="color:#8be9fd;font-style:italic">print</span>(numerator <span style="color:#ff79c6">/</span> denominator)
+</code></pre></div><blockquote>
+<p>0.125</p>
+</blockquote>
+<p>Cuối cùng, ta có một thủ thuật nho nhỏ để hoán đổi giá trị của hai biến. Nếu như trong một số ngôn ngữ khác, ta phải khai báo một biến trung gian khác để lưu giá trị như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+b <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+
+temp <span style="color:#ff79c6">=</span> a
+a <span style="color:#ff79c6">=</span> b
+b <span style="color:#ff79c6">=</span> temp
+<span style="color:#8be9fd;font-style:italic">print</span>(a, b)
+</code></pre></div><blockquote>
+<p>0 1</p>
+</blockquote>
+<p>Nhưng đối với Python, công việc sẽ đơn giản hơn nhiều</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+b <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+a, b <span style="color:#ff79c6">=</span> b, a
+<span style="color:#8be9fd;font-style:italic">print</span>(a, b)
+</code></pre></div><blockquote>
+<p>0 1</p>
+</blockquote>
+<p>Cuối cùng là lời cảm ơn sâu sắc tới <a href="https://www.facebook.com/spun.sugar.on.a.stick">Trương Quốc Quân</a> - người đồng hành cùng mình trong series bài viết này.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/python/booleans-and-conditionals/" data-toggle="tooltip" data-placement="top" title="Booleans and Conditionals">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -6,7 +6,16 @@
     <description>Recent content in Python on KhánhKD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lists</title>
+      <link>https://khnhkd.github.io/post/python/lists/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/python/lists/</guid>
+      <description>Lists Lists trong Python là một mảng các giá trị có thứ tự. Có thứ tự giống như chúng ta xếp hàng, nếu chúng ta vào đầu tiên thì ta sẽ đứng đầu - tương ứng với chỉ số 0 (hay còn gọi là index) trong Lists. Chú ý rằng trong Lists thì index sẽ bắt đầu từ số 0, và nếu bạn đã từng tiếp xúc với ngôn ngữ lập trình nào khác như C, C++, &amp;hellip; thì Lists trong Python khá tương đồng với array (mảng) trong các ngôn ngữ khác.</description>
+    </item>
+    
     <item>
       <title>Booleans and Conditionals</title>
       <link>https://khnhkd.github.io/post/python/booleans-and-conditionals/</link>
