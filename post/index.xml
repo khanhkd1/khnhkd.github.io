@@ -6,7 +6,19 @@
     <description>Recent content in Posts on KhánhKD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Loops and List Comprehensions</title>
+      <link>https://khnhkd.github.io/post/python/loops-and-list-comprehensions/</link>
+      <pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/python/loops-and-list-comprehensions/</guid>
+      <description>Loops (Vòng lặp) Vòng lặp là một các để thực thi lặp đi lặp lại một đoạn code. Dưới đây là một ví dụ:
+for loops planets = [&amp;#39;Mercury&amp;#39;, &amp;#39;Venus&amp;#39;, &amp;#39;Earth&amp;#39;, &amp;#39;Mars&amp;#39;, &amp;#39;Jupiter&amp;#39;, &amp;#39;Saturn&amp;#39;, &amp;#39;Uranus&amp;#39;, &amp;#39;Neptune&amp;#39;] for planet in planets: print(planet, end=&amp;#39; &amp;#39;) # in ra trên cùng một dòng  Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune
+ Vòng lặp for chỉ định:
+ Tên biến để lặp (Ví dụ trên thì biến là planet) Tập hợp các giá trị (Ví dụ trên là planets)  Bạn cần sử dụng keyword in để sử dụng biến để duyệt mảng theo từng phần tử.</description>
+    </item>
+    
     <item>
       <title>Lists</title>
       <link>https://khnhkd.github.io/post/python/lists/</link>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Loops and List Comprehensions" />
+    <meta property="og:title" content="Loops and List Comprehensions" />
+    <meta property="twitter:title" content="Loops and List Comprehensions" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Loops and List Comprehensions-</title>
+
+    <link rel="canonical" href="/post/python/loops-and-list-comprehensions/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/data-science">data-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/python">python</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Loops and List Comprehensions</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Wednesday, October 6, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#loops-vòng-lặp">Loops (Vòng lặp)</a>
+      <ul>
+        <li><a href="#for-loops">for loops</a></li>
+        <li><a href="#range">range()</a></li>
+        <li><a href="#while-loops">while loops</a></li>
+      </ul>
+    </li>
+    <li><a href="#list-comprehensions">List comprehensions</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="loops-vòng-lặp">Loops (Vòng lặp)</h1>
+<p>Vòng lặp là một các để thực thi lặp đi lặp lại một đoạn code. Dưới đây là một ví dụ:</p>
+<h2 id="for-loops">for loops</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;Mercury&#39;</span>, <span style="color:#f1fa8c">&#39;Venus&#39;</span>, <span style="color:#f1fa8c">&#39;Earth&#39;</span>, <span style="color:#f1fa8c">&#39;Mars&#39;</span>, <span style="color:#f1fa8c">&#39;Jupiter&#39;</span>, <span style="color:#f1fa8c">&#39;Saturn&#39;</span>, <span style="color:#f1fa8c">&#39;Uranus&#39;</span>, <span style="color:#f1fa8c">&#39;Neptune&#39;</span>]
+<span style="color:#ff79c6">for</span> planet <span style="color:#ff79c6">in</span> planets:
+    <span style="color:#8be9fd;font-style:italic">print</span>(planet, end<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39; &#39;</span>) <span style="color:#6272a4"># in ra trên cùng một dòng</span>
+</code></pre></div><blockquote>
+<p>Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune</p>
+</blockquote>
+<p>Vòng lặp <em>for</em> chỉ định:</p>
+<ul>
+<li>Tên biến để lặp (Ví dụ trên thì biến là planet)</li>
+<li>Tập hợp các giá trị (Ví dụ trên là planets)</li>
+</ul>
+<p>Bạn cần sử dụng keyword <em>in</em> để sử dụng biến để duyệt mảng theo từng phần tử. Lệnh <em>for planet in planets:</em> ta có thể tạm dịch tiếng việt là <em>duyệt qua từng hành tinh trong tập hợp các hành tinh</em>.</p>
+<p>Đối tượng nằm bên phải keyword <em>in</em> có thể là bất kì đối tượng nào hỗ trợ lặp. Trong Python, các đối tượng này là: Lists, Tuple, String, &hellip;</p>
+<p>Dưới đây là ví dụ lặp với Tuple:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">multiplicands <span style="color:#ff79c6">=</span> (<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">5</span>)
+product <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+<span style="color:#ff79c6">for</span> mult <span style="color:#ff79c6">in</span> multiplicands:
+    product <span style="color:#ff79c6">=</span> product <span style="color:#ff79c6">*</span> mult
+product
+</code></pre></div><blockquote>
+<p>360</p>
+</blockquote>
+<p>Ta còn có thể lặp từng kí tự trong một chuỗi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;steganograpHy is the practicE of conceaLing a file, message, image, or video within another fiLe, message, image, Or video.&#39;</span>
+msg <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>
+
+<span style="color:#ff79c6">for</span> char <span style="color:#ff79c6">in</span> s: <span style="color:#6272a4"># lặp từng kí tự trong s, biến lặp là char</span>
+    <span style="color:#ff79c6">if</span> char<span style="color:#ff79c6">.</span>isupper(): <span style="color:#6272a4"># kiểm tra xem biến lặp có phải là in hoa không, nếu có thể thực hiện code trong khối if</span>
+        <span style="color:#8be9fd;font-style:italic">print</span>(char, end<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;</span>)  
+</code></pre></div><blockquote>
+<p>HELLO</p>
+</blockquote>
+<h2 id="range">range()</h2>
+<p><em>range()</em> là một hàm hữu ích và hay được sử dụng trong Python. Công dụng của nó là trả về một tập số nguyên dựa trên đối số truyền vào. Bạn có thể tìm hiểu chi tiết ở <a href="https://www.w3schools.com/python/ref_func_range.asp">đây</a>.</p>
+<p>Dưới đây là ví dụ khi ta muốn lặp lại việc in ra một thông báo 5 lần:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">5</span>):
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Doing important work. i =&#34;</span>, i)
+</code></pre></div><blockquote>
+<p>Doing important work. i = 0<br>
+Doing important work. i = 1<br>
+Doing important work. i = 2<br>
+Doing important work. i = 3<br>
+Doing important work. i = 4</p>
+</blockquote>
+<h2 id="while-loops">while loops</h2>
+<p>Ngoài vòng lặp <em>for</em>, ta còn có thể sử dụng vòng lặp <em>while</em>. Vòng lặp <em>while</em> sẽ hoạt động khi điều kiện truyền vào là đúng:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+<span style="color:#ff79c6">while</span> i <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">10</span>:
+    <span style="color:#8be9fd;font-style:italic">print</span>(i, end<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39; &#39;</span>)
+    i <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span> <span style="color:#6272a4"># ta tăng giá trị biến i lên 1 đơn vị</span>
+</code></pre></div><blockquote>
+<p>0 1 2 3 4 5 6 7 8 9</p>
+</blockquote>
+<p>Như ta thấy, vòng lặp sẽ lặp từ số 0 đến số 9, đến khi biến <em>i</em> có giá trị bằng 10 thì biểu thức <em>i &lt; 10</em> có giá trị là <em>False</em> nên vòng lặp sẽ không được thực thi và thoát vòng lặp.</p>
+<h1 id="list-comprehensions">List comprehensions</h1>
+<p><em>List comprehensions</em> (mình xin phép không dịch khái niệm này) là một tính năng rất được yêu thích khi lập trình Python. Cách để hình dung về nó dễ dàng là hãy xem qua một vài ví dụ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">squares <span style="color:#ff79c6">=</span> [n<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span> <span style="color:#ff79c6">for</span> n <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">10</span>)]
+squares
+</code></pre></div><blockquote>
+<p>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</p>
+</blockquote>
+<p>Trên là cách chúng để chúng ta tạo ra một danh sách các số chính phương khi sử dụng <em>List comprehensions</em>. Còn dưới đây là khi chúng ta không sử dụng <em>List comprehensions</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">squares <span style="color:#ff79c6">=</span> []
+<span style="color:#ff79c6">for</span> n <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">10</span>):
+    squares<span style="color:#ff79c6">.</span>append(n<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span>)
+squares
+</code></pre></div><blockquote>
+<p>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</p>
+</blockquote>
+<p>Bạn có thể nhận ra sự khác biệt không? Chắc chắn là khi sử dụng <em>List comprehensions</em> ta có thể tiết kiệm được vài dòng code ^^</p>
+<p>Hơn nữa, ta còn có thể kết hợp cả lệnh <em>if</em> như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">short_planets <span style="color:#ff79c6">=</span> [planet <span style="color:#ff79c6">for</span> planet <span style="color:#ff79c6">in</span> planets <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(planet) <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">6</span>] <span style="color:#6272a4"># lấy ra các hành tinh có độ dài tên nhỏ hơn 6 kí tự</span>
+short_planets
+</code></pre></div><blockquote>
+<p>[&lsquo;Venus&rsquo;, &lsquo;Earth&rsquo;, &lsquo;Mars&rsquo;]</p>
+</blockquote>
+<p>(Nếu bạn đã từng làm quen với SQL thì có thể thấy nó khá giống với mệnh đề <em>WHERE</em>)</p>
+<p>Ta còn có thể áp dụng một số biến đổi rồi cộng thêm một giá trị nào đó cho biến vòng lặp như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># str.upper() trả về chuỗi được viết hoa các kí tự</span>
+loud_short_planets <span style="color:#ff79c6">=</span> [planet<span style="color:#ff79c6">.</span>upper() <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39;!&#39;</span> <span style="color:#ff79c6">for</span> planet <span style="color:#ff79c6">in</span> planets <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(planet) <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">6</span>]
+loud_short_planets
+</code></pre></div><blockquote>
+<p>[&lsquo;VENUS!&rsquo;, &lsquo;EARTH!&rsquo;, &lsquo;MARS!']</p>
+</blockquote>
+<p>Nếu ta phân chia câu lệnh trên thành 3 dòng thì sẽ dễ hình dung hơn nhiều:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[
+    planet<span style="color:#ff79c6">.</span>upper() <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39;!&#39;</span> 
+    <span style="color:#ff79c6">for</span> planet <span style="color:#ff79c6">in</span> planets 
+    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(planet) <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">6</span>
+]
+</code></pre></div><blockquote>
+<p>[&lsquo;VENUS!&rsquo;, &lsquo;EARTH!&rsquo;, &lsquo;MARS!']</p>
+</blockquote>
+<p>(Khá giống SQL đúng không, dòng 1 tương tự SELECT, dòng 2 tương tự FROM còn dòng 3 tương tự WHERE)</p>
+<p>Chú ý rằng biểu thức bên trái keyword <em>for</em> có thể không cần liên quan đến biến của vòng lặp (khá là lạ đúng không). Hãy xem xét ví dụ sau nhé:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[<span style="color:#bd93f9">32</span> <span style="color:#ff79c6">for</span> planet <span style="color:#ff79c6">in</span> planets]
+</code></pre></div><blockquote>
+<p>[32, 32, 32, 32, 32, 32, 32, 32]</p>
+</blockquote>
+<p>Khi ta kết hợp <em>List comprehensions</em> với các hàm như <em>max()</em>, <em>min()</em>, <em>sum()</em>, &hellip; thì ta có thể giải quyết một vài vấn đề chỉ trong duy nhất một dòng code.</p>
+<p>Để ví dụ, bạn hãy xem xét 2 hàm cùng thực hiện một nhiệm vụ là trả về số các số âm trong danh sách:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">count_negatives</span>(nums):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Return the number of negative numbers in the given list.
+</span><span style="color:#f1fa8c">    
+</span><span style="color:#f1fa8c">    &gt;&gt;&gt; count_negatives([5, -1, -2, 0, 3])
+</span><span style="color:#f1fa8c">    2
+</span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+    n_negative <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+    <span style="color:#ff79c6">for</span> num <span style="color:#ff79c6">in</span> nums:
+        <span style="color:#ff79c6">if</span> num <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>:
+            n_negative <span style="color:#ff79c6">=</span> n_negative <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">return</span> n_negative
+</code></pre></div><p>Đây là khi ta sử dụng <em>List comprehensions</em> kết hợp hàm <em>len()</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">count_negatives</span>(nums):
+    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">len</span>([num <span style="color:#ff79c6">for</span> num <span style="color:#ff79c6">in</span> nums <span style="color:#ff79c6">if</span> num <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>])
+</code></pre></div><p>Sự khác biệt khá lớn phải không nào. Hoặc nếu chúng ta chỉ quan tâm có thể code một cách ngắn gọn nhất thì có thể tham khảo giải pháp sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">count_negatives</span>(nums):
+    <span style="color:#6272a4"># Chú ý rằng biểu thức num &lt; 0 sẽ trả về một giá trị Boolean, True tương đương với 1 còn False tương đương 0.</span>
+    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">sum</span>([num <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">for</span> num <span style="color:#ff79c6">in</span> nums])
+</code></pre></div><p>Trong 3 phương pháp cùng giải quyết vấn đề đếm số âm như mình đã ví dụ ở trên, việc lựa chọn phương pháp nào tốt nhất đều là ở chủ quan cá nhân bạn. Rút gọn code luôn tốt, nhưng bạn hãy ghi nhớ những dòng sau từ <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a></p>
+<blockquote>
+<p>Readability counts.<br>
+Explicit is better than implicit.</p>
+</blockquote>
+<p>Tạm dịch:</p>
+<blockquote>
+<p>Code càng dễ đọc càng tốt<br>
+Viết rõ ràng rành mạch chứ không nên để tự ngầm hiểu</p>
+</blockquote>
+<p>Vì vậy hãy lựa chọn thông minh để có thể vừa rút ngắn code, vừa có thể khiến người đọc dễ hiểu.</p>
+<p>Cuối cùng là lời cảm ơn sâu sắc tới <a href="https://www.facebook.com/spun.sugar.on.a.stick">Trương Quốc Quân</a> - người đồng hành cùng mình trong series bài viết này.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/python/lists/" data-toggle="tooltip" data-placement="top" title="Lists">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
