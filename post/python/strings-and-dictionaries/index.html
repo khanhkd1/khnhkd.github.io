@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="KhánhKD Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://khnhkd.github.io/img/404_img.jpeg">
+    <meta property="twitter:image" content="https://khnhkd.github.io/img/404_img.jpeg" />
+    
+
+    
+    <meta name="title" content="Strings and Dictionaries" />
+    <meta property="og:title" content="Strings and Dictionaries" />
+    <meta property="twitter:title" content="Strings and Dictionaries" />
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Strings and Dictionaries-</title>
+
+    <link rel="canonical" href="/post/python/strings-and-dictionaries/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KhánhKD Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/data-science">data-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/python">python</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/404_img.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Strings and Dictionaries</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                KhánhKD Blog
+                         
+                        on 
+                        Thursday, October 7, 2021
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#strings-chuỗi">Strings (chuỗi)</a>
+      <ul>
+        <li><a href="#string-syntax">String syntax</a></li>
+        <li><a href="#strings-are-sequences">Strings are sequences</a></li>
+        <li><a href="#string-methods">String methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#dictionaries">Dictionaries</a></li>
+  </ul>
+</nav>
+                
+                <p>Bài này mình sẽ giới thiệu thêm về hai kiểu dữ liệu phổ biến nữa trong Python là: Strings (chuỗi), Dictionaries (từ điển)</p>
+<h1 id="strings-chuỗi">Strings (chuỗi)</h1>
+<p>Có thể nói Python là ngôn ngữ lập trình xử lý chuỗi rất tốt. Có những nhiệm vụ khi làm việc với ngôn ngữ lập trình khác thì rất khó nhưng khi làm việc với Python thì mọi chuyện trở nên đơn giản hơn rất nhiều. Phần này mình sẽ giới thiệu về một số hàm, phương thức kèm theo định dạng chuỗi được tích hợp sẵn trong Python.</p>
+<p>Chú ý rằng làm việc với chuỗi rất hay xuất hiện trong lĩnh vực khoa học dữ liệu</p>
+<h2 id="string-syntax">String syntax</h2>
+<p>Trong các bài viết trước của mình đã đề cập và sử dụng rất nhiều chuỗi, ta chỉ cần tóm lược lại rằng chuỗi sẽ được xác định trong hai dấu <em>nháy đơn</em> hoặc <em>nháy kép</em>. Hai dấu nháy này đều tương đương nhau nhưng hãy chú ý hãy sử dụng đồng nhất nhé, đừng bắt đầu với <em>nháy đơn</em> rồi kết thúc bằng <em>nháy kép</em> (hoặc ngược lại).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Pluto is a planet&#39;</span>
+y <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Pluto is a planet&#34;</span>
+x <span style="color:#ff79c6">==</span> y
+</code></pre></div><blockquote>
+<p>True</p>
+</blockquote>
+<p>Khi ta sử dụng dấu <em>nháy đơn</em> thì trong chuỗi của ta có thể tồn tại dấu <em>nháy kép</em> (và ngược lại cũng đúng):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Pluto&#39;s a planet!&#34;</span>)
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;My dog is named &#34;Pluto&#34;&#39;</span>)
+</code></pre></div><blockquote>
+<p>Pluto&rsquo;s a planet!<br>
+My dog is named &ldquo;Pluto&rdquo;</p>
+</blockquote>
+<p>Nhưng nếu ta sử dụng dấu nháy đơn mà trong chuỗi có thêm dấu nháy đơn khác nữa thì sẽ xảy ra lỗi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#39;Pluto&#39;</span>s a planet!<span style="color:#f1fa8c">&#39;</span>
+</code></pre></div><blockquote>
+<p>File &ldquo;/tmp/ipykernel_20/1561186517.py&rdquo;, line 1<br>
+&lsquo;Pluto&rsquo;s a planet!&rsquo;<br>
+SyntaxError: invalid syntax</p>
+</blockquote>
+<p>Để tránh lỗi này thì ta có thể sử dụng dấu <em>gạch chéo</em> để báo hiệu cho Python biết đây là một kí tự đặc biệt:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#39;Pluto</span><span style="color:#f1fa8c">\&#39;</span><span style="color:#f1fa8c">s a planet!&#39;</span>
+</code></pre></div><blockquote>
+<p>&ldquo;Pluto&rsquo;s a planet!&rdquo;</p>
+</blockquote>
+<p>Dưới đây là bảng một vài kí tự đặc biệt đi kèm với dấu <em>gạch chéo</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Output</th>
+<th>Example</th>
+<th>print(Example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\'</td>
+<td>'</td>
+<td>&lsquo;What's up?&rsquo;</td>
+<td>What&rsquo;s up?</td>
+</tr>
+<tr>
+<td>\&quot;</td>
+<td>&quot;</td>
+<td>&ldquo;That&rsquo;s &quot;cool&quot;&rdquo;</td>
+<td>That&rsquo;s &ldquo;cool&rdquo;</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>\</td>
+<td>&ldquo;Look, a mountain: /\\&rdquo;</td>
+<td>Look, a mountain: /\</td>
+</tr>
+<tr>
+<td>\n</td>
+<td></td>
+<td>&ldquo;1\n2 3&rdquo;</td>
+<td>1 (xuống dòng) 2 3</td>
+</tr>
+</tbody>
+</table>
+<p>Ở dòng cuối cùng, <code>\n</code> đại diện cho một kí tự dòng mới</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hello <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;hello</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">world&#34;</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(hello)
+</code></pre></div><blockquote>
+<p>hello<br>
+world</p>
+</blockquote>
+<p>Ngoài ra, nếu bạn muốn viết một chuỗi trên nhiều dòng mà muốn bảo toàn format của nó (không dùng <code>\n</code>) thì có thể sử dụng 3 dấu nháy đơn hoặc nháy kép liên tiếp:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">triplequoted_hello <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;hello
+</span><span style="color:#f1fa8c">world&#34;&#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">print</span>(triplequoted_hello)
+triplequoted_hello <span style="color:#ff79c6">==</span> hello
+</code></pre></div><blockquote>
+<p>hello<br>
+world<br>
+<br>
+True</p>
+</blockquote>
+<p>Hàm <code>print()</code> cũng mặc định kí tự kết thúc là <code>\n</code> trừ khi chúng ta truyền vào một đối số khác cho tham số <code>end</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;hello&#34;</span>)
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;world&#34;</span>)
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;hello&#34;</span>, end<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;</span>)
+<span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;pluto&#34;</span>, end<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;</span>)
+</code></pre></div><blockquote>
+<p>hello<br>
+world<br>
+hellopluto</p>
+</blockquote>
+<h2 id="strings-are-sequences">Strings are sequences</h2>
+<p>Chuỗi có thể được coi là một danh sách các kí tự riêng lẻ (Ví dụ &lsquo;khánh&rsquo; = [&lsquo;k&rsquo;, &lsquo;h&rsquo;, &lsquo;á&rsquo;, &lsquo;n&rsquo;, &lsquo;h&rsquo;]). Vì vậy bất kì điều gì có thể làm việc với danh sách thì đều có thể làm việc với chuỗi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Indexing</span>
+planet <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Pluto&#39;</span>
+planet[<span style="color:#bd93f9">0</span>]
+</code></pre></div><blockquote>
+<p>&lsquo;P&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Slicing</span>
+planet[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>:]
+</code></pre></div><blockquote>
+<p>&lsquo;uto&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># How long is this string?</span>
+<span style="color:#8be9fd;font-style:italic">len</span>(planet)
+</code></pre></div><blockquote>
+<p>5</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Yes, we can even loop over them</span>
+[char<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#39;! &#39;</span> <span style="color:#ff79c6">for</span> char <span style="color:#ff79c6">in</span> planet]
+</code></pre></div><blockquote>
+<p>[&lsquo;P! &lsquo;, &lsquo;l! &lsquo;, &lsquo;u! &lsquo;, &rsquo;t! &lsquo;, &lsquo;o! &lsquo;]</p>
+</blockquote>
+<p>Nhưng khác với danh sách ở chỗ chúng ta không thể sửa đổi được giá trị kí tự trong chuỗi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planet[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;B&#39;</span>
+<span style="color:#6272a4"># planet.append cũng không thể thực thi</span>
+</code></pre></div><blockquote>
+<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;<br>
+TypeError                                 Traceback (most recent call last)<br>
+/tmp/ipykernel_20/2683731249.py in <!-- raw HTML omitted --><br>
+&mdash;-&gt; 1 planet[0] = &lsquo;B&rsquo;<br>
+TypeError: &lsquo;str&rsquo; object does not support item assignment</p>
+</blockquote>
+<h2 id="string-methods">String methods</h2>
+<p>Giống như danh sách, kiểu dữ liệu chuỗi có khá nhiều phương thức hữu ích, hãy xem một vài ví dụ sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># VIẾT HOA</span>
+claim <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Pluto is a planet!&#34;</span>
+claim<span style="color:#ff79c6">.</span>upper()
+</code></pre></div><blockquote>
+<p>&lsquo;PLUTO IS A PLANET!&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># viết thường</span>
+claim<span style="color:#ff79c6">.</span>lower()
+</code></pre></div><blockquote>
+<p>&lsquo;pluto is a planet!&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Tìm kiếm index của một chuỗi con</span>
+claim<span style="color:#ff79c6">.</span>index(<span style="color:#f1fa8c">&#39;plan&#39;</span>)
+</code></pre></div><blockquote>
+<p>11</p>
+</blockquote>
+<p>Ở ví dụ trên, hãy nhớ rằng nếu chuỗi &ldquo;Pluto is a planet!&rdquo; chứa chuỗi con &lsquo;plan&rsquo; thì index của &lsquo;plan&rsquo; chính bằng index của &lsquo;p&rsquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">claim<span style="color:#ff79c6">.</span>startswith(planet) <span style="color:#6272a4"># Giá trị biến claim (&#39;Pluto is a planet!&#39;) có bắt đầu bằng giá trị biến plannet (&#39;Pluto&#39;) không</span>
+</code></pre></div><blockquote>
+<p>True</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">claim<span style="color:#ff79c6">.</span>endswith(<span style="color:#f1fa8c">&#39;dwarf planet&#39;</span>)
+</code></pre></div><blockquote>
+<p>False</p>
+</blockquote>
+<h3 id="sự-tương-tác-giữa-_chuỗi_-và-_danh-sách_-split-và-join">Sự tương tác giữa <em>Chuỗi</em> và <em>Danh sách</em>: <code>.split()</code> và <code>.join()</code></h3>
+<p><code>.split()</code> giúp ta biến một chuỗi thành một danh sách các chuỗi nhỏ hơn, các chuỗi nhỏ này được tạo nên từ việc tách chuỗi theo khoảng trắng. Ví du:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">words <span style="color:#ff79c6">=</span> claim<span style="color:#ff79c6">.</span>split()
+words
+</code></pre></div><blockquote>
+<p>[&lsquo;Pluto&rsquo;, &lsquo;is&rsquo;, &lsquo;a&rsquo;, &lsquo;planet!']</p>
+</blockquote>
+<p>Ngoài khoảng trắng ra thì ta có thể tách chuỗi bằng bất kì kí tự nào bạn muốn</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">datestr <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;1956-01-31&#39;</span>
+year, month, day <span style="color:#ff79c6">=</span> datestr<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">&#39;-&#39;</span>)
+</code></pre></div><p><code>str.join()</code> thì ngược lại với <code>.split()</code>, nó giúp chúng ta nối các phần tử trong danh sách thành một chuỗi. Nó sử dụng chuỗi bên trái <code>dấu chấm</code> để làm dấu phân cách</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#39;/&#39;</span><span style="color:#ff79c6">.</span>join([month, day, year])
+</code></pre></div><blockquote>
+<p>&lsquo;01/31/1956&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Bạn còn có thể chèn kí tự Unicode vào cơ :v</span>
+<span style="color:#f1fa8c">&#39; 👏 &#39;</span><span style="color:#ff79c6">.</span>join([word<span style="color:#ff79c6">.</span>upper() <span style="color:#ff79c6">for</span> word <span style="color:#ff79c6">in</span> words])
+</code></pre></div><h3 id="xây-dựng-chuỗi-với-format">Xây dựng chuỗi với <code>.format()</code></h3>
+<p>Trong Python, ta có thể nối chuỗi với toán tử <code>+</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planet <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39;, we miss you.&#39;</span>
+</code></pre></div><blockquote>
+<p>&lsquo;Pluto, we miss you.&rsquo;</p>
+</blockquote>
+<p>Nếu muốn cộng chuỗi với bất kì đối tượng nào không phải là chuỗi, ta phải <em>ép kiểu</em> nó về kiểu dữ liệu chuỗi trước:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">position <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">9</span>
+planet <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;, you&#39;ll always be the &#34;</span> <span style="color:#ff79c6">+</span> position <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;th planet to me.&#34;</span>
+</code></pre></div><blockquote>
+<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; <br>
+TypeError                                 Traceback (most recent call last)<br>
+/tmp/ipykernel_20/1802981568.py in <!-- raw HTML omitted --><br>
+1 position = 9<br>
+&mdash;-&gt;	2 planet + &ldquo;, you&rsquo;ll always be the &quot; + position + &ldquo;th planet to me.&rdquo;<br>
+TypeError: can only concatenate str (not &ldquo;int&rdquo;) to str</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planet <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;, you&#39;ll always be the &#34;</span> <span style="color:#ff79c6">+</span> <span style="color:#8be9fd;font-style:italic">str</span>(position) <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;th planet to me.&#34;</span>
+</code></pre></div><blockquote>
+<p>&ldquo;Pluto, you&rsquo;ll always be the 9th planet to me.&rdquo;</p>
+</blockquote>
+<p>Bạn thấy khó chịu khi cứ phải <code>+</code> các thứ không, nếu thấy khó chịu như mình thì hãy dùng <code>str.format()</code> để giải thoát sự khó chịu này :v</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{}</span><span style="color:#f1fa8c">, you&#39;ll always be the </span><span style="color:#f1fa8c">{}</span><span style="color:#f1fa8c">th planet to me.&#34;</span><span style="color:#ff79c6">.</span>format(planet, position)
+</code></pre></div><blockquote>
+<p>&ldquo;Pluto, you&rsquo;ll always be the 9th planet to me.&rdquo;</p>
+</blockquote>
+<p>Nhìn gọn gàng đẹp mắt hơn rất nhiều đúng không. <code>.format()</code> được gọi là chuỗi được định dạng, trong đó <code>{}</code> như là ghế giữ chỗ cho giá trị ta muốn truyền vào (trong dấu ngoặc đơn của phương thức <code>.format()</code>)</p>
+<p>Chú ý rằng giá trị truyền vào khi sử dụng <code>.format()</code> không nhất thiết phải là kiểu dữ liệu chuỗi.</p>
+<p>Ngoài ra, ta còn có thể sử dụng <code>.format()</code> để chỉ định số chữ số sau dấu phẩy, định dạng theo <code>%</code>, phân tách hàng nghìn, triệu, &hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pluto_mass <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1.303</span> <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span><span style="color:#ff79c6">**</span><span style="color:#bd93f9">22</span>
+earth_mass <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5.9722</span> <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span><span style="color:#ff79c6">**</span><span style="color:#bd93f9">24</span>
+population <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">52910390</span>
+<span style="color:#6272a4">#         2 decimal points   3 decimal points, format as percent     separate with commas</span>
+<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{}</span><span style="color:#f1fa8c"> weighs about </span><span style="color:#f1fa8c">{:.2}</span><span style="color:#f1fa8c"> kilograms (</span><span style="color:#f1fa8c">{:.3%}</span><span style="color:#f1fa8c"> of Earth&#39;s mass). It is home to </span><span style="color:#f1fa8c">{:,}</span><span style="color:#f1fa8c"> Plutonians.&#34;</span><span style="color:#ff79c6">.</span>format(
+    planet, pluto_mass, pluto_mass <span style="color:#ff79c6">/</span> earth_mass, population,
+)
+</code></pre></div><blockquote>
+<p>&ldquo;Pluto weighs about 1.3e+22 kilograms (0.218% of Earth&rsquo;s mass). It is home to 52,910,390 Plutonians.&rdquo;</p>
+</blockquote>
+<p>Thêm nữa, ta còn có thể coi các đối số truyền vào là một danh sách và gọi phần tử theo <code>index</code> mà không cần truyền đi truyền lại khi muốn gọi nhiều lần</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;Pluto&#39;s a </span><span style="color:#f1fa8c">{0}</span><span style="color:#f1fa8c">.
+</span><span style="color:#f1fa8c">No, it&#39;s a </span><span style="color:#f1fa8c">{1}</span><span style="color:#f1fa8c">.
+</span><span style="color:#f1fa8c"></span><span style="color:#f1fa8c">{0}</span><span style="color:#f1fa8c">!
+</span><span style="color:#f1fa8c"></span><span style="color:#f1fa8c">{1}</span><span style="color:#f1fa8c">!&#34;&#34;&#34;</span><span style="color:#ff79c6">.</span>format(<span style="color:#f1fa8c">&#39;planet&#39;</span>, <span style="color:#f1fa8c">&#39;dwarf planet&#39;</span>)
+<span style="color:#8be9fd;font-style:italic">print</span>(s)
+</code></pre></div><blockquote>
+<p>Pluto&rsquo;s a planet.<br>
+No, it&rsquo;s a dwarf planet.<br>
+planet!<br>
+dwarf planet!</p>
+</blockquote>
+<p>Trên đây chỉ là cơ bản về <code>str.format()</code>, nếu bạn thấy thú vị thì có thể tìm hiểu thêm lại <a href="https://pyformat.info/">pyformat</a> và <a href="https://docs.python.org/3/library/string.html#formatstrings">trang tài liệu chính thức của Python</a></p>
+<h1 id="dictionaries">Dictionaries</h1>
+<p>Từ điển là một cấu trúc dữ liệu có sẵn trong Python với mục đích ánh xạ <code>keys</code> (các khoá) thành <code>values</code> (giá trị)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;one&#39;</span>:<span style="color:#bd93f9">1</span>, <span style="color:#f1fa8c">&#39;two&#39;</span>:<span style="color:#bd93f9">2</span>, <span style="color:#f1fa8c">&#39;three&#39;</span>:<span style="color:#bd93f9">3</span>}
+</code></pre></div><p>Ví dụ trên thì khoá là &lsquo;one&rsquo;, &lsquo;two&rsquo;, &lsquo;three&rsquo;. Còn giá trị tương ứng là 1, 2, 3</p>
+<p>Giá trị sẽ được truy cập thông qua khoá như sau (khá giống phần <code>indexing</code> trong kiểu dữ liệu danh sách phải không)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers[<span style="color:#f1fa8c">&#39;one&#39;</span>]
+</code></pre></div><blockquote>
+<p>1</p>
+</blockquote>
+<p>Cú pháp để thêm một cặp khoá - giá trị tương ứng</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers[<span style="color:#f1fa8c">&#39;eleven&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">11</span>
+numbers
+</code></pre></div><blockquote>
+<p>{&lsquo;one&rsquo;: 1, &lsquo;two&rsquo;: 2, &lsquo;three&rsquo;: 3, &lsquo;eleven&rsquo;: 11}</p>
+</blockquote>
+<p>Hoặc là thay đổi giá trị liên kết với một khoá hiện có</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers[<span style="color:#f1fa8c">&#39;one&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Pluto&#39;</span>
+numbers
+</code></pre></div><blockquote>
+<p>{&lsquo;one&rsquo;: &lsquo;Pluto&rsquo;, &lsquo;two&rsquo;: 2, &lsquo;three&rsquo;: 3, &lsquo;eleven&rsquo;: 11}</p>
+</blockquote>
+<p>Ở bài trước, ta đã biết về <em>Lists comprehensions</em> trong kiểu dữ liệu danh sách. Ở bài này với kiểu dữ liệu từ điển, ta sẽ có thêm khái niệm <em>dictionary comprehensions</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">planets <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;Mercury&#39;</span>, <span style="color:#f1fa8c">&#39;Venus&#39;</span>, <span style="color:#f1fa8c">&#39;Earth&#39;</span>, <span style="color:#f1fa8c">&#39;Mars&#39;</span>, <span style="color:#f1fa8c">&#39;Jupiter&#39;</span>, <span style="color:#f1fa8c">&#39;Saturn&#39;</span>, <span style="color:#f1fa8c">&#39;Uranus&#39;</span>, <span style="color:#f1fa8c">&#39;Neptune&#39;</span>]
+planet_to_initial <span style="color:#ff79c6">=</span> {planet: planet[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">for</span> planet <span style="color:#ff79c6">in</span> planets}
+planet_to_initial
+</code></pre></div><blockquote>
+<p>{&lsquo;Mercury&rsquo;: &lsquo;M&rsquo;,<br>
+&lsquo;Venus&rsquo;: &lsquo;V&rsquo;,<br>
+&lsquo;Earth&rsquo;: &lsquo;E&rsquo;,<br>
+&lsquo;Mars&rsquo;: &lsquo;M&rsquo;,<br>
+&lsquo;Jupiter&rsquo;: &lsquo;J&rsquo;,<br>
+&lsquo;Saturn&rsquo;: &lsquo;S&rsquo;,<br>
+&lsquo;Uranus&rsquo;: &lsquo;U&rsquo;,<br>
+&lsquo;Neptune&rsquo;: &lsquo;N&rsquo;}</p>
+</blockquote>
+<p>Toán tử <code>in</code> cho ta biết liệu trong từ điển có chứa khoá này hay không</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#39;Saturn&#39;</span> <span style="color:#ff79c6">in</span> planet_to_initial
+</code></pre></div><blockquote>
+<p>True</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f1fa8c">&#39;Betelgeuse&#39;</span> <span style="color:#ff79c6">in</span> planet_to_initial
+</code></pre></div><blockquote>
+<p>False</p>
+</blockquote>
+<p>Vòng lặp <code>for</code> sẽ lặp lại qua các khoá có trong từ điển</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> numbers:
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{}</span><span style="color:#f1fa8c"> = </span><span style="color:#f1fa8c">{}</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">.</span>format(k, numbers[k]))
+</code></pre></div><blockquote>
+<p>one = Pluto<br>
+two = 2<br>
+three = 3<br>
+eleven = 11</p>
+</blockquote>
+<p>Ngoài ra ta có thể sử dụng <code>dict.keys()</code> để lấy ra tất cả các khoá và <code>dict.values()</code> để lấy ra tất cả các giá trị</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># Lấy ra tất cả các giá trị trong từ điển planet_to_initial, sắp xếp chúng theo bảng chữ cái rồi nối chúng lại thành một chuỗi</span>
+<span style="color:#f1fa8c">&#39; &#39;</span><span style="color:#ff79c6">.</span>join(<span style="color:#8be9fd;font-style:italic">sorted</span>(planet_to_initial<span style="color:#ff79c6">.</span>values()))
+</code></pre></div><blockquote>
+<p>&lsquo;E J M M N S U V&rsquo;</p>
+</blockquote>
+<p>Ngoài ra còn <code>dict.items()</code> cho phép chúng ta lấy ra đồng thời các khoá và giá trị tương ứng</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> planet, initial <span style="color:#ff79c6">in</span> planet_to_initial<span style="color:#ff79c6">.</span>items():
+    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{}</span><span style="color:#f1fa8c"> begins with </span><span style="color:#f1fa8c">\&#34;</span><span style="color:#f1fa8c">{}</span><span style="color:#f1fa8c">\&#34;</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">.</span>format(planet, initial))
+</code></pre></div><blockquote>
+<p>Mercury begins with &ldquo;M&rdquo;<br>
+Venus begins with &ldquo;V&rdquo;<br>
+Earth begins with &ldquo;E&rdquo;<br>
+Mars begins with &ldquo;M&rdquo;<br>
+Jupiter begins with &ldquo;J&rdquo;<br>
+Saturn begins with &ldquo;S&rdquo;<br>
+Uranus begins with &ldquo;U&rdquo;<br>
+Neptune begins with &ldquo;N&rdquo;</p>
+</blockquote>
+<p>Trên đây là một vài kiến thức cơ bản về kiểu dữ liệu từ điển trong Python, để tìm hiểu sâu hơn nữa, bạn hãy truy cập vào <a href="https://docs.python.org/3/library/stdtypes.html#dict">trang tài liệu chính thức của Python</a>, hoặc ta có thể dùng hàm <code>help(dict)</code></p>
+<p>Cuối cùng là lời cảm ơn sâu sắc tới <a href="https://www.facebook.com/spun.sugar.on.a.stick">Trương Quốc Quân</a> - người đồng hành cùng mình trong series bài viết này.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/python/loops-and-list-comprehensions/" data-toggle="tooltip" data-placement="top" title="Loops and List Comprehensions">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:khanhkd.contact@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/khnhkd">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/khnhkd/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; KhánhKD Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

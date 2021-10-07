@@ -6,7 +6,17 @@
     <description>Recent content on KhánhKD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://khnhkd.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Strings and Dictionaries</title>
+      <link>https://khnhkd.github.io/post/python/strings-and-dictionaries/</link>
+      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://khnhkd.github.io/post/python/strings-and-dictionaries/</guid>
+      <description>Bài này mình sẽ giới thiệu thêm về hai kiểu dữ liệu phổ biến nữa trong Python là: Strings (chuỗi), Dictionaries (từ điển)
+Strings (chuỗi) Có thể nói Python là ngôn ngữ lập trình xử lý chuỗi rất tốt. Có những nhiệm vụ khi làm việc với ngôn ngữ lập trình khác thì rất khó nhưng khi làm việc với Python thì mọi chuyện trở nên đơn giản hơn rất nhiều.</description>
+    </item>
+    
     <item>
       <title>Loops and List Comprehensions</title>
       <link>https://khnhkd.github.io/post/python/loops-and-list-comprehensions/</link>
